@@ -1,0 +1,24 @@
+{
+  "name": "api-starter-kit-package",
+  "version": "1.0.0",
+  "description": "Starter kit to help getting started with API's",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JoshuaMillerCode/real_project_5.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JoshuaMillerCode/real_project_5/issues"
+  },
+  "homepage": "https://github.com/JoshuaMillerCode/real_project_5#readme",
+  "dependencies": {
+    "consola": "^2.15.3",
+    "inquirer": "^8.0.0"
+  }
+}

@@ -27,7 +27,7 @@ export default function Perseverance() {
     try {
         const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=32&page=2&api_key=PznWNg9VRWns0PUiMSIRpRaaZ3b3TX9MKUVjawiR`);
         const data = await response.json();
-        setPhotoData(...data);
+        setPhotoData(data);
         // console.log(data);
         // console.log(data.photos);
         console.log(data.photos[1].img_src);
@@ -44,8 +44,7 @@ export default function Perseverance() {
     
     <>
           {/* <img
-          src={photoData.photos[0].img_src}
-          alt={photoData[0].earth_date}
+          src={photoData.photos[1].img_src}
           className="photo"
         /> */}
     

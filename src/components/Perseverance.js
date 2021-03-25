@@ -27,23 +27,27 @@ export default function Perseverance() {
     try {
         const response = await fetch(`https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=32&page=2&api_key=PznWNg9VRWns0PUiMSIRpRaaZ3b3TX9MKUVjawiR`);
         const data = await response.json();
-        setPhotoData(data.photos);
+        setPhotoData(...data);
         // console.log(data);
         // console.log(data.photos);
-        // console.log(data[1].img_src);
+        console.log(data.photos[1].img_src);
 
     } catch (e) {
         console.error(e);
     }
 }, []);
-  console.log(photoData[0]);
+  console.log(photoData.photos);
 
   // if (!photoData) return <div />;
   
   return (
     
     <>
-  
+          {/* <img
+          src={photoData[0].img_src}
+          alt={photoData[0].earth_date}
+          className="photo"
+        /> */}
     
     </>
   );

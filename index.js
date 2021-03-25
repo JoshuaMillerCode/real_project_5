@@ -17,68 +17,107 @@ inquirer
         type: 'list',
         message: 'Please pick what API you would like to implement into your project. If your not ready to decide, dont worry just press CTRL + C to stop',
         choices: ['nasa', 'marvel', 'movie', 'youtube',  'news']
-    },
-    // {
-    //     name: 'projectName',
-    //     type: 'input',
-    //     message: 'Name this Project:',
-    //     validate: (input) => {
-    //         if (/^([A-Za-z\-\_\d])+$/.test(input)) {
-    //             return true;
-    //         } else {
-    //             return 'Project name must contain letters, numbers, underscores and hashes only.';
-    //         }
-    //     }
-    // },
-    // {
-    //     name: 'injectApiKey',
-    //     input: 'input =',
-    //     message: 'Enter your api-key, if you have one already:',
-    //     validate: (input) => {
-    //         if (/^([A-Za-z\-\_\d])+$/.test(input)) {
-    //             return true;
-    //         } else {
-    //             return 'Project name must contain letters, numbers, underscores and hashes only.';
-    //         }
-    //     }
-    // }
+    }
     ])
     .then((apiChoice) => { 
+        configVars.push(apiChoice)
         switch (apiChoice.apiProjectChoice) {
             case "nasa":  
-                const prompt = inquirer.prompt([
+                inquirer.prompt([
                     {
                         name: 'nasaChoice',
                         type: 'list',
-                        message: "Please pick which rover you would like to implement?",
-                        choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance']
+                        message: "Which NASA api would you like to use?",
+                        choices: ['Picture of the day', 'Rovers']
                     }
-                ]);
+                ])
+                .then(({nasaChoice}) => {
+                    if (nasaChoice === 'Rovers') {
+                        inquirer.prompt([
+                        {
+                            name: 'roverChoice',
+                            type: 'list',
+                            message: "Please pick which rover you would like to implement?",
+                            choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance']
+                        }
+                    ])
+                    .then(({roverChoice}) => {
+                        switch (roverChoice) {
+                            case 'Spirit':
+                                return {
+                                    roverChoice: roverChoice,
+                                    url: ''
+                                }
+                            case 'Curiosity':
+                                return {
+                                    roverChoice: roverChoice,
+                                    url: ''
+                                }
+                            case 'Opportunity':
+                                return {
+                                    roverChoice: roverChoice,
+                                    url: ''
+                                }
+                            case 'Perseverance':
+                                return {
+                                    roverChoice: roverChoice,
+                                    url: ''
+                                }
+                        }
+                    })
+                    } else {
+                        return {
+                            nasaChoice: nasaChoice,
+                            url: ''
+                        }
+                    }
+                    
+                })
                 break;
-            case 'Google_Maps':
-                return 'google'
-                
-            case '':
-
-                break;
-            case 'blahblah':
-
-                break;
-            case 'blahblah':
-
-                break;
-            case 'blahblah':
-
-                break;
+            case 'marvel':
+                return console.info('OHHHHHH, now thats a good choice')
+            case 'movie':
+                return console.info('OHHHHHH, now thats a good choice')
+            case 'youtube':
+                return console.info('OHHHHHH, now thats a good choice')
+            case 'news':
+                return console.info('OHHHHHH, now thats a good choice')
 
         } 
-        configVars.push(apiChoice)
-        return prompt;
         
     })
     .then((answer) => {
         configVars.push(answer)
-        console.log(configVars)
+        inquirer.prompt([
+            {
+                name: 'apiKey',
+                input: 'input',
+                message: 'Enter your api-key, if you have one already:',
+                validate: (input) => {
+                    if (/^([A-Za-z\-\_\d])+$/.test(input)) {
+                        return true;
+                    } else {
+                        return 'Project name must contain letters, numbers, underscores and hashes only.';
+                    }
+                },
+                
+            },
+            {
+                name: 'projectName',
+                type: 'input',
+                message: 'Name this Project:',
+                validate: (input) => {
+                    if (/^([A-Za-z\-\_\d])+$/.test(input)) {
+                        return true;
+                    } else {
+                        return 'Project name must contain letters, numbers, underscores and hashes only.';
+                    }
+                }
+            }
+        ])
+    })
+    .then((answers) => {
+        configVars.push(answers)
     })
 
 

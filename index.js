@@ -1,14 +1,14 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
-const consola = require('consola')
-const CHOICES = fs.readdirSync(`${__dirname}/templates`);
+const consola = require('consola');
+const { config } = require('process');
+// const CHOICES = fs.readdirSync(`${__dirname}/templates`);
 const cwd = process.cwd();
 //npm install [-g] shelljs
 //might use shelljs to make the directories
 consola.info("Getting started using the api-starter-kit-package");
 
-let injectApiKey;
-
+const configVars = [];
 
 inquirer
     .prompt([
@@ -16,7 +16,7 @@ inquirer
         name: 'apiProjectChoice',
         type: 'list',
         message: 'Please pick what API you would like to implement into your project. If your not ready to decide, dont worry just press CTRL + C to stop',
-        choices: CHOICES
+        choices: ['nasa', 'marvel', 'movie', 'youtube',  'news']
     },
     // {
     //     name: 'projectName',
@@ -43,22 +43,22 @@ inquirer
     //     }
     // }
     ])
-    .then(({apiProjectChoice}) => {
-        switch (apiProjectChoice) {
-            case "NASA": 
-                inquirer.prompt([
+    .then((apiChoice) => { 
+        switch (apiChoice.apiProjectChoice) {
+            case "nasa":  
+                const prompt = inquirer.prompt([
                     {
                         name: 'nasaChoice',
                         type: 'list',
-                        message: "Pick which part of the api you would like to implement?",
-                        choices: {}
+                        message: "Please pick which rover you would like to implement?",
+                        choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance']
                     }
                 ]);
                 break;
-            case 'blahblah':
-
-                break;
-            case 'blahblah':
+            case 'Google_Maps':
+                return 'google'
+                
+            case '':
 
                 break;
             case 'blahblah':
@@ -72,9 +72,17 @@ inquirer
                 break;
 
         } 
-
+        configVars.push(apiChoice)
+        return prompt;
         
     })
+    .then((answer) => {
+        configVars.push(answer)
+        console.log(configVars)
+    })
+
+
+
     .catch(error => {
     if(error.isTtyError) {
       // Prompt couldn't be rendered in the current environment
@@ -114,4 +122,5 @@ function createDirectoryContents (templatePath, newProjectPath) {
         createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
         }
     });
+
 }

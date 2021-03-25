@@ -44,7 +44,7 @@ export default function Perseverance() {
     
     <>
           {/* <img
-          src={photoData[0].img_src}
+          src={photoData.photos[0].img_src}
           alt={photoData[0].earth_date}
           className="photo"
         /> */}

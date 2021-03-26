@@ -118,6 +118,7 @@ inquirer
     })
     .then((answers) => {
         configVars.push(answers)
+        console.log(answers)
     })
 
 

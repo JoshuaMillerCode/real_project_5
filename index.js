@@ -10,7 +10,9 @@ consola.info("Getting started using the api-starter-kit-package");
 
 const configVars = [];
 
-inquirer
+
+(async () => {
+    await inquirer
     .prompt([
     {
         name: 'apiProjectChoice',
@@ -19,11 +21,11 @@ inquirer
         choices: ['nasa', 'marvel', 'movie', 'youtube',  'news']
     }
     ])
-    .then((apiChoice) => { 
+    .then( async (apiChoice) => { 
         configVars.push(apiChoice)
         switch (apiChoice.apiProjectChoice) {
             case "nasa":  
-                inquirer.prompt([
+                await inquirer.prompt([
                     {
                         name: 'nasaChoice',
                         type: 'list',
@@ -31,64 +33,35 @@ inquirer
                         choices: ['Picture of the day', 'Rovers']
                     }
                 ])
-                .then(({nasaChoice}) => {
-                    if (nasaChoice === 'Rovers') {
-                        inquirer.prompt([
-                        {
-                            name: 'roverChoice',
-                            type: 'list',
-                            message: "Please pick which rover you would like to implement?",
-                            choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance']
-                        }
-                    ])
-                    .then(({roverChoice}) => {
-                        switch (roverChoice) {
-                            case 'Spirit':
-                                return {
-                                    roverChoice: roverChoice,
-                                    url: ''
-                                }
-                            case 'Curiosity':
-                                return {
-                                    roverChoice: roverChoice,
-                                    url: ''
-                                }
-                            case 'Opportunity':
-                                return {
-                                    roverChoice: roverChoice,
-                                    url: ''
-                                }
-                            case 'Perseverance':
-                                return {
-                                    roverChoice: roverChoice,
-                                    url: ''
-                                }
-                        }
-                    })
-                    } else {
-                        return {
-                            nasaChoice: nasaChoice,
-                            url: ''
-                        }
-                    }
-                    
-                })
+                // .then( async (answer) => {
+                //     if (answer.nasaChoice === 'Rovers') {
+                //         await inquirer.prompt([
+                //             {
+                //                 name: 'roverChoice',
+                //                 type: 'list',
+                //                 message: "Please pick which rover you would like to implement?",
+                //                 choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance']
+                //             }
+                //         ])
+                //     }
+                // })
                 break;
             case 'marvel':
-                return console.info('OHHHHHH, now thats a good choice')
+                // return console.info('OHHHHHH, now thats a good choice')
             case 'movie':
-                return console.info('OHHHHHH, now thats a good choice')
+                // return console.info('OHHHHHH, now thats a good choice')
             case 'youtube':
-                return console.info('OHHHHHH, now thats a good choice')
+                // return console.info('OHHHHHH, now thats a good choice')
             case 'news':
-                return console.info('OHHHHHH, now thats a good choice')
+                // return console.info('OHHHHHH, now thats a good choice')
 
-        } 
+            }
         
     })
-    .then((answer) => {
+    .then( async (answer) => {
         configVars.push(answer)
-        inquirer.prompt([
+        console.log(answer.nasaChoice)
+        await inquirer.prompt([
             {
                 name: 'apiKey',
                 input: 'input',
@@ -118,6 +91,8 @@ inquirer
     })
     .then((answers) => {
         configVars.push(answers)
+        // fs.writeFileSync(`${cwd}/config.json`, JSON.stringify(configVars))
+        // return console.log(configVars)
     })
 
 
@@ -128,7 +103,8 @@ inquirer
     } else {
       // Something else went wrong
     }
-});
+})
+})();
 
 function createDirectoryContents (templatePath, newProjectPath) {
     const filesToCreate = fs.readdirSync(templatePath);

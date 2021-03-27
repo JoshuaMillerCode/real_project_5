@@ -1,19 +1,11 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const consola = require('consola');
-const { config } = require('process');
-// const CHOICES = fs.readdirSync(`${__dirname}/templates`);
-const cwd = process.cwd();
-//npm install [-g] shelljs
-//might use shelljs to make the directories
-consola.info("Getting started using the api-starter-kit-package");
-
-const configVars = [];
-
-
-(async () => {
-    await inquirer
-    .prompt([
+const fs = require("fs");
+const inquirer = require("inquirer");
+// const Choices = require("inquirer/lib/objects/choices");
+// const { report } = require("process");
+const util = require("util");
+const writeFileAsync = util.promisify(fs.writeFile)
+function promptUser(){
+    return inquirer.prompt([
         {
             name: 'apiProjectChoice',
             type: 'list',
@@ -36,84 +28,119 @@ const configVars = [];
                     return 'Project name must contain letters, numbers, underscores and hashes only.';
                 }
             },
-            when: (answers) => answers.apiChoice === true
+            when: (response) => response.apiChoice === true
         },
-        {
-            name: 'projectName',
-            type: 'input',
-            message: 'Name this Project:',
-            validate: (input) => {
-                if (/^([A-Za-z\-\_\d])+$/.test(input)) {
-                    return true;
-                } else {
-                    return 'Project name must contain letters, numbers, underscores and hashes only.';
-                }
-            }
-        },
+        // {
+        //     name: 'projectName',
+        //     type: 'input',
+        //     message: 'Name this Project:',
+        //     validate: (input) => {
+        //         if (/^([A-Za-z\-\_\d])+$/.test(input)) {
+        //             return true;
+        //         } else {
+        //             return 'Project name must contain letters, numbers, underscores and hashes only.';
+        //         }
+        //     }
+        // },
         {
             name: 'nasaChoice',
             type: 'list',
             message: "Which NASA api would you like to use?",
             choices: ['Picture of the day', 'Rovers'],
-            when: (answers) => answers.apiProjectChoice === 'nasa'
+            when: (response) => response.apiProjectChoice === 'nasa'
         },
         {
             name: 'roverChoice',
             type: 'list',
             message: "Please pick which rover you would like to implement?",
             choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance'],
-            when: (answers) => answers.nasaChoice === 'Rovers'
-        },
-        
-    ])
-    
-    .then((answers) => {
-        // configVars.push(answers)
-        fs.writeFileSync(`${cwd}/config.json`, JSON.stringify(answers))
-        // return console.log(configVars)
-    })
-
-
-
-    .catch(error => {
-    if(error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-})
-})();
-
-function createDirectoryContents (templatePath, newProjectPath) {
-    const filesToCreate = fs.readdirSync(templatePath);
-
-    filesToCreate.forEach(file => {
-        const origFilePath = `${templatePath}/${file}`;
-
-      // get stats about the current file
-        const stats = fs.statSync(origFilePath);
-
-
-        if (stats.isFile()) {
-            const contents = fs.readFileSync(origFilePath, 'utf8');
-
-            const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
-            fs.writeFileSync(writePath, contents, 'utf8');
-            let newFilePath
-                if (file === '_gitignore') {
-                    newFilePath = '.gitignore';
-                    fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
-                } else if ( file === '_env'){
-                    newFilePath = '.env';
-                    fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
-                }
-
-        } else if (stats.isDirectory()) {
-        fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
-
-        // recursive call
-        createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
+            when: (response) => response.nasaChoice === 'Rovers'
         }
-    });
-
+    ])
 }
+function generateNasaPhotoJs(response){
+    if(response.apiProjectChoice == "nasa"){
+        console.log('nasa')
+    }else if (response.apiProjectChoice == "news"){
+        console.log('news')
+    }
+return`
+import React, { useState, useEffect } from "react";
+import NavBar from "./NavBar";
+export default function NasaPhoto() {
+    const [photoData, setPhotoData] = useState(null);
+    useEffect(() => {
+      fetchPhoto();
+      async function fetchPhoto() {
+        const res = await fetch(
+          \`https://api.nasa.gov/planetary/apod?api_key=${response.apiKey}\`
+        );
+        const data = await res.json();
+        setPhotoData(data);
+      }
+    }, []);
+    console.log(photoData);
+    if (!photoData) return <div />;
+    return (
+      <>
+      <NavBar />
+      <div className="nasa-photo">
+        {photoData.media_type === "image" ? (
+          <img
+            src={photoData.url}
+            alt={photoData.title}
+            className="photo"
+          />
+        ) : (
+          <iframe
+            title="space-video"
+            src={photoData.url}
+            frameBorder="0"
+            gesture="media"
+            allow="encrypted-media"
+            allowFullScreen
+            className="photo"
+          />
+        )}
+        <div>
+          <h1>{photoData.title}</h1>
+          <p className="date">{photoData.date}</p>
+          <p className="explanation">{photoData.explanation}</p>
+        </div>
+      </div>
+      </>
+    );
+  }
+ `
+}
+// function generateDotEnv(response){
+//     if(response.apiProjectChoice == "nasa"){
+//         console.log('nasa')
+//     }else {
+//         console.log('news')
+//     }
+// return`
+// REACT_APP_NASA_KEY=${response.apiKey}
+// `}
+promptUser().then(function(response){
+    let nasaJs = generateNasaPhotoJs(response);
+    writeFileAsync("./src/components/NasaPhoto.js", nasaJs);
+    // fs.writeFileSync("./src/components/NasaPhoto.js", nasaJs);
+})
+.then(function(response){
+    // console.log(`response apiKey is:  ${response.apiKey}`);
+    // const nasaEnv = generateDotEnv(response);
+    // writeFileAsync("./.env", nasaEnv);
+})
+// .then(function(response){
+//     const nasaJs2 = generateDotEnv(response);
+//     return writeFileAsync("./.env", nasaJs2);
+// })
+.then(function () {
+        console.log("Generating Super Cool Totally Awesome File...");
+    }).catch(function(err){
+    console.error(err)
+})
+// .then(function () {
+//     console.log(`response is = to:  ${response}`)
+// })

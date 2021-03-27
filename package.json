@@ -1,5 +1,5 @@
 {
-  "name": "api-starter-kit-package",
+  "name": "go-api",
   "version": "1.0.0",
   "description": "Starter kit to help getting started with API's",
   "main": "index.js",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/JoshuaMillerCode/real_project_5.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/JoshuaMillerCode/real_project_5/issues"
   },
@@ -20,5 +20,8 @@
   "dependencies": {
     "consola": "^2.15.3",
     "inquirer": "^8.0.0"
+  },
+  "bin": {
+    "go-api": "./index.js"
   }
 }

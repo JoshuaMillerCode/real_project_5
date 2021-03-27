@@ -1,19 +1,13 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const consola = require('consola');
-const { config } = require('process');
-// const CHOICES = fs.readdirSync(`${__dirname}/templates`);
-const cwd = process.cwd();
-//npm install [-g] shelljs
-//might use shelljs to make the directories
-consola.info("Getting started using the api-starter-kit-package");
-
-const configVars = [];
-
-
-(async () => {
-    await inquirer
-    .prompt([
+const fs = require("fs");
+const inquirer = require("inquirer");
+const generate = require('./generateFunctions');
+const CURR_DIR = process.cwd()
+// const Choices = require("inquirer/lib/objects/choices");
+// const { report } = require("process");
+const util = require("util");
+const writeFileAsync = util.promisify(fs.writeFileSync)
+function promptUser(){
+    return inquirer.prompt([
         {
             name: 'apiProjectChoice',
             type: 'list',
@@ -36,7 +30,7 @@ const configVars = [];
                     return 'Project name must contain letters, numbers, underscores and hashes only.';
                 }
             },
-            when: (answers) => answers.apiChoice === true
+            when: (response) => response.apiChoice === true
         },
         {
             name: 'projectName',
@@ -55,65 +49,83 @@ const configVars = [];
             type: 'list',
             message: "Which NASA api would you like to use?",
             choices: ['Picture of the day', 'Rovers'],
-            when: (answers) => answers.apiProjectChoice === 'nasa'
+            when: (response) => response.apiProjectChoice === 'nasa'
         },
         {
             name: 'roverChoice',
             type: 'list',
             message: "Please pick which rover you would like to implement?",
             choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance'],
-            when: (answers) => answers.nasaChoice === 'Rovers'
-        },
-        
+            when: (response) => response.nasaChoice === 'Rovers'
+        }
     ])
-    
-    .then((answers) => {
-        // configVars.push(answers)
-        fs.writeFileSync(`${cwd}/config.json`, JSON.stringify(answers))
-        // return console.log(configVars)
-    })
+}
 
+function generateDotEnv(response){
+    // if(response.apiProjectChoice == "nasa"){
+    //     console.log('nasa')
+    // }else {
+    //     console.log('news')
+    // }
+return`
+API_KEY=${response.apiKey}
+`}
+promptUser().then(function(response){
+    const projectChoice = response.apiProjectChoice;
+    const projectName =  response.projectName;
+    const templatePath = `${__dirname}/templates/starter-kit`;
 
+    fs.mkdirSync(`${CURR_DIR}/${projectName}`);
 
-    .catch(error => {
-    if(error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
+    createDirectoryContents(templatePath, projectName, response);
 })
-})();
 
-function createDirectoryContents (templatePath, newProjectPath) {
+function createDirectoryContents (templatePath, newProjectPath, response) {
     const filesToCreate = fs.readdirSync(templatePath);
 
     filesToCreate.forEach(file => {
-        const origFilePath = `${templatePath}/${file}`;
+      const origFilePath = `${templatePath}/${file}`;
 
       // get stats about the current file
-        const stats = fs.statSync(origFilePath);
+      const stats = fs.statSync(origFilePath);
 
 
-        if (stats.isFile()) {
-            const contents = fs.readFileSync(origFilePath, 'utf8');
+      if (stats.isFile()) {
+        const contents = fs.readFileSync(origFilePath, 'utf8');
 
-            const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
-            fs.writeFileSync(writePath, contents, 'utf8');
-            let newFilePath
-                if (file === '_gitignore') {
-                    newFilePath = '.gitignore';
-                    fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
-                } else if ( file === '_env'){
-                    newFilePath = '.env';
-                    fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
-                }
+        const writePath = `${CURR_DIR}/${newProjectPath}/${file}`;
+        fs.writeFileSync(writePath, contents, 'utf8');
+        let newFilePath
+        if (file === '_gitignore') {
+          newFilePath = '.gitignore';
+          fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
+        } else if ( file === '_env'){
+          newFilePath = '.env';
+          fs.renameSync(writePath, `${CURR_DIR}/${newProjectPath}/${newFilePath}`);
+        }
 
-        } else if (stats.isDirectory()) {
+      } else if (stats.isDirectory()) {
         fs.mkdirSync(`${CURR_DIR}/${newProjectPath}/${file}`);
 
         // recursive call
         createDirectoryContents(`${templatePath}/${file}`, `${newProjectPath}/${file}`);
-        }
+      }
     });
 
-}
+    if(response.apiProjectChoice == "nasa"){
+        let nasaJs = generate.nasaPhotoJs(response);
+        writeFileAsync(`${CURR_DIR}/src/components/NasaPhoto.js`, nasaJs);
+        let nasaEnv = generateDotEnv(response);
+        writeFileAsync(`${CURR_DIR}/.env`, nasaEnv);
+    }else if(response.apiProjectChoice == "movie"){
+        console.log('movie');
+        let movieJs = generateMovieJs(response);
+        writeFileAsync("./src/components/Movie.js", movieJs);
+    }else if(response.apiProjectChoice == "news"){
+        console.log('news');
+    }else if(response.apiProjectChoice == "marvel"){
+        console.log('marvel');
+    }else if(response.apiProjectChoice == "youtube"){
+        console.log('youtube');
+    }
+  }

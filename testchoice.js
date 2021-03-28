@@ -3,7 +3,6 @@ const inquirer = require("inquirer");
 // const Choices = require("inquirer/lib/objects/choices");
 // const { report } = require("process");
 const util = require("util");
-
 const writeFileAsync = util.promisify(fs.writeFile)
 function promptUser(){
     return inquirer.prompt([
@@ -57,42 +56,34 @@ function promptUser(){
             choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance'],
             when: (response) => response.nasaChoice === 'Rovers'
         }
-        
     ])
 }
 
-
-
+console.log(response);
 function generateNasaPhotoJs(response){
-    
     if(response.apiProjectChoice == "nasa"){
         console.log('nasa')
     }else if (response.apiProjectChoice == "news"){
         console.log('news')
     }
-
-    
-return`
-import React, { useState, useEffect } from "react";
+return`import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+require('dotenv').config();
+const apiKey = process.env.REACT_APP_NASA_KEY;
 export default function NasaPhoto() {
     const [photoData, setPhotoData] = useState(null);
-  
     useEffect(() => {
       fetchPhoto();
-  
       async function fetchPhoto() {
         const res = await fetch(
-          \`https://api.nasa.gov/planetary/apod?api_key=${response.apiKey}\`
-        );
+          \`https://api.nasa.gov/planetary/apod?api_key=\${apiKey}\`
+          );
         const data = await res.json();
         setPhotoData(data);
-        
       }
     }, []);
     console.log(photoData);
     if (!photoData) return <div />;
-  
     return (
       <>
       <NavBar />
@@ -127,44 +118,34 @@ export default function NasaPhoto() {
 }
 
 
-
-// function generateDotEnv(response){
     
-//     if(response.apiProjectChoice == "nasa"){
-//         console.log('nasa')
-//     }else {
-//         console.log('news')
-//     }
+        
 
-    
-// return`
-// REACT_APP_NASA_KEY=${response.apiKey}
-// `}
 promptUser().then(function(response){
-    
+    if
     let nasaJs = generateNasaPhotoJs(response);
     writeFileAsync("./src/components/NasaPhoto.js", nasaJs);
+    return response;
     // fs.writeFileSync("./src/components/NasaPhoto.js", nasaJs);
-    console.log(`The apiKey is:  ${response.apiKey}`);
 })
 .then(function(response){
-    // console.log(`response apiKey is:  ${response.apiKey}`);
-    // const nasaEnv = generateDotEnv(response);
-    // writeFileAsync("./.env", nasaEnv);
+    const nasaEnv = generateDotEnv(response);
+    writeFileAsync("./.env", nasaEnv);
+    return response;
 })
-
-
-// .then(function(response){
-//     const nasaJs2 = generateDotEnv(response);
-//     return writeFileAsync("./.env", nasaJs2);
-// })
 .then(function () {
         console.log("Generating Super Cool Totally Awesome File...");
-        
     }).catch(function(err){
     console.error(err)
 })
-// .then(function () {
-//     console.log(`response is = to:  ${response}`)
-// })
-
+}}
+function generateDotEnv(response){
+    if(response.apiProjectChoice == "nasa"){
+        console.log('nasa')
+    }else {
+        console.log('news')
+    }
+return`REACT_APP_NASA_KEY=${response.apiKey}
+replace undefined with your NASA API KEY.  You can get one for free from here https://api.nasa.gov/
+`}
+whichApiWasChosen();

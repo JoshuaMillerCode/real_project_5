@@ -120,11 +120,39 @@ function createDirectoryContents (templatePath, newProjectPath) {
   }
 
   function dynamicFiles (response, projectName) {
-    if(response.apiProjectChoice == "nasa"){
-        let nasaJs = generate.nasaPhotoJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NasaPhoto.js`, nasaJs);
-        let nasaEnv = generateDotEnv(response);
+    if(response.apiProjectChoice == "nasa" && response.nasaChoice == 'Picture of the day'){
+        let nasaPhotoJs = generate.NasaPhotoJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NasaPhoto.js`, nasaPhotoJs);
+
+        let nasaApp = generate.NasaPhotoAppJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/App.js`, nasaApp);
+
+        let nasaHome = generate.NasaPhotoHomeJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/Home.js`, nasaHome);
+
+        let nasaNavBar = generate.NasaNavBarJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NavBar.js`, nasaNavBar);
+
+        let nasaEnv = generate.DotEnv(response);
         fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, nasaEnv);
+
+
+    }else if(response.apiProjectChoice == "nasa" && response.nasaChoice == 'Rovers') {
+        let nasaRoverJs = generate.NasaRoverJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/${response.roverChoice}.js` , nasaRoverJs);
+
+        let nasaApp = generate.NasaRoverAppJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/App.js`, nasaApp);
+
+        let nasaHome = generate.NasaRoverHomeJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/Home.js`, nasaHome);
+
+        let nasaNavBar = generate.NasaNavBarJs(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NavBar.js`, nasaNavBar);
+
+        let nasaEnv = generate.DotEnv(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, nasaEnv);
+
     }else if(response.apiProjectChoice == "movie"){
         console.log('movie');
         let movieJs = generateMovieJs(response);
@@ -135,5 +163,7 @@ function createDirectoryContents (templatePath, newProjectPath) {
         console.log('marvel');
     }else if(response.apiProjectChoice == "youtube"){
         console.log('youtube');
+    }else {
+        console.log('super cool')
     }
   }

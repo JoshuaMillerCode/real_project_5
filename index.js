@@ -1,12 +1,13 @@
 #!/usr/bin/env node
+const { exec } = require("child_process");
+const { default: consolaGlobalInstance } = require("consola");
 const fs = require("fs");
 const inquirer = require("inquirer");
+const { stdout, stderr } = require("process");
 const generate = require('./generateFunctions');
 const CURR_DIR = process.cwd()
-// const Choices = require("inquirer/lib/objects/choices");
-// const { report } = require("process");
-// const util = require("util");
-// const writeFileAsync = util.promisify(fs.writeFile)
+
+
 function promptUser(){
     return inquirer.prompt([
         {
@@ -79,6 +80,30 @@ promptUser().then(function(response){
     const templatePath = `${__dirname}/templates/starter-kit`;
 
     fs.mkdirSync(`${CURR_DIR}/${projectName}`);
+    
+    consola.info(`Nice Choice!! Your project is now being bulit!`);
+    consola.info(`Implenting ${projectChoice} API...`);
+    consola.info(`Just imagine the possibilities with this AMAZING pre-written code!`);
+    consola.info(`But seriously, thank you for choosing this package for this great project.`);
+    consola.info(`We are truly grateful.`)
+    exec(`cd ${projectName} && npm i`, (err, stdout, stderr) => {
+        if (err){
+            consola.error(`Hmmmm... We've come across an error, but don't worry: ${err}`);
+            consola.warn(`These warning could help you with this error: ${stderr}`);
+            return;
+        } else {
+            consola.warn(stdout);
+            exec(`cd ${projectName} && npm audit`, (err, stdout, stderr) => {
+                consola.warn(`These are some warnings but they\'re no big deal, trust me: ${stdout}`)
+                consola.success(`Your project has been successfully built!!!`)
+                consola.success(`Your project is inside of your ${CURR_DIR} directory, run this command to enter your project: /n
+                > cd ${projectName} <`);
+                consola.success('The api related files are in the > components < folder');
+                consola.success(`We hope this helps you kickstart your project! Have fun!`);
+            })
+        }
+        return;
+    })
 
     createDirectoryContents(templatePath, projectName);
     dynamicFiles(response, projectName);

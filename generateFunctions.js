@@ -1,5 +1,6 @@
-function NasaPhotoJs(response){
-    
+const response = require('./index')
+
+function NasaPhotoJs(response){ 
 return`
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
@@ -120,14 +121,14 @@ function NasaRoverHomeJs(response){
 function NasaRoverJs(response){
     return`import React, { useState, useEffect } from "react";
     import NavBar from "./NavBar";
-    const apiKey = process.env.REACT_APP_NASA_KEY;
+    const apiKey = process.env.API_KEY;
     export default function ${response.roverChoice}() {
       const [photoData, setPhotoData] = useState({});
       useEffect(() => {
         fetchPhoto();
         async function fetchPhoto() {
           const res = await fetch(
-            \`https://api.nasa.gov/mars-photos/api/v1/rovers/${response.roverChoice}/photos?sol=34&page=2&api_key=${apiKey}\`
+            \`https://api.nasa.gov/mars-photos/api/v1/rovers/${response.roverChoice}/photos?sol=34&page=2&api_key=\${apiKey}\`
           );
           const data = await res.json();
           setPhotoData(data.photos[13]);

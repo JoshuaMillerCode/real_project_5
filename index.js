@@ -1,11 +1,12 @@
+#!/usr/bin/env node
 const fs = require("fs");
 const inquirer = require("inquirer");
 const generate = require('./generateFunctions');
 const CURR_DIR = process.cwd()
 // const Choices = require("inquirer/lib/objects/choices");
 // const { report } = require("process");
-const util = require("util");
-const writeFileAsync = util.promisify(fs.writeFileSync)
+// const util = require("util");
+// const writeFileAsync = util.promisify(fs.writeFile)
 function promptUser(){
     return inquirer.prompt([
         {
@@ -70,6 +71,8 @@ function generateDotEnv(response){
 return`
 API_KEY=${response.apiKey}
 `}
+
+
 promptUser().then(function(response){
     const projectChoice = response.apiProjectChoice;
     const projectName =  response.projectName;
@@ -77,10 +80,12 @@ promptUser().then(function(response){
 
     fs.mkdirSync(`${CURR_DIR}/${projectName}`);
 
-    createDirectoryContents(templatePath, projectName, response);
+    createDirectoryContents(templatePath, projectName);
+    dynamicFiles(response, projectName);
 })
 
-function createDirectoryContents (templatePath, newProjectPath, response) {
+
+function createDirectoryContents (templatePath, newProjectPath) {
     const filesToCreate = fs.readdirSync(templatePath);
 
     filesToCreate.forEach(file => {
@@ -112,15 +117,18 @@ function createDirectoryContents (templatePath, newProjectPath, response) {
       }
     });
 
+  }
+
+  function dynamicFiles (response, projectName) {
     if(response.apiProjectChoice == "nasa"){
         let nasaJs = generate.nasaPhotoJs(response);
-        writeFileAsync(`${CURR_DIR}/src/components/NasaPhoto.js`, nasaJs);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NasaPhoto.js`, nasaJs);
         let nasaEnv = generateDotEnv(response);
-        writeFileAsync(`${CURR_DIR}/.env`, nasaEnv);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, nasaEnv);
     }else if(response.apiProjectChoice == "movie"){
         console.log('movie');
         let movieJs = generateMovieJs(response);
-        writeFileAsync("./src/components/Movie.js", movieJs);
+        fs.writeFileSync("./src/components/Movie.js", movieJs);
     }else if(response.apiProjectChoice == "news"){
         console.log('news');
     }else if(response.apiProjectChoice == "marvel"){

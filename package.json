@@ -1,6 +1,6 @@
 {
   "name": "go-api",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Starter kit to help getting started with API's",
   "main": "index.js",
   "scripts": {

@@ -331,7 +331,7 @@ This is the super cool movie page that was written.  Isn't it amazing
 promptUser().then(function(response){
     
     if(response.apiProjectChoice == "nasa" && response.nasaChoice == 'Picture of the day'){
-    // fs.mkdirSync('./src/components').catch(console.error);
+    fs.mkdirSync('./src/components').catch(console.error);
     let nasaPhotoJs = generateNasaPhotoJs(response);
     writeFileAsync("./src/components/NasaPhoto.js", nasaPhotoJs);
     let nasaApp = generateNasaPhotoAppJs(response);

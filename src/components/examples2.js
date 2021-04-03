@@ -46,17 +46,22 @@ export default function Examples() {
 <p>News API allows you to search through over 75,000 news sources and blogs dating back the last 3 years.<br />
   They have 2 main endpoints to query(<i><b>everything</b></i> and <i>top-headlines</i>) with many parameters for each
   </p>
+  <h4>***********************  Dont forget to remove key below! **********************</h4>
+  <h3>My key for testing:   506994c0ec454ed49cd6d44cbd794afa</h3>
+  <br />
+  <br />
 <div className='exampleContainerDiv'>
+<h2>Everything Endpoint</h2>
 <div className='exampleTopDiv'>
 
-<h2>Everything Search</h2>There are 2 main endpoints 
 
 
-My key for testing:   506994c0ec454ed49cd6d44cbd794afa
+
+
 
 Endpoints with examples
 Everything: https://newsapi.org/v2/everything?q=wandavision&apiKey=NEWS-API-KEY
-Searches all sources for News stories on Wandavision and will return an object that looks like this:
+Searches all sources for articles on Wandavision and will return an object that looks like this:
 <pre className='showJson'>
 {JSON.stringify(everythingJson, null, 2)}
 </pre>

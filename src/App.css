@@ -1,38 +1,82 @@
-.App {
+.topSection{
+    width: 70%;
+    margin: 0 auto;
+    margin-top: 25px;
+}
+.titleImage {
+  
+  /* float:left; */
+  width:49%;
+  display:inline-block;
+}
+.apiGoLogoDiv {
+  width:49%;
+  float:right;
+  
+}
+.showJson {
+  margin-left: 40px;
+}
+.cameraTable {
+  border: 8px solid black;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: red;
+}
+.cameraTable tr td{
+  border: 1.3px solid black;
+  padding: 10px;
+  background-color: white;
+}
+.tableTitles {
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.rover-info{
+  max-width: 1100px;
+  /* margin: 0 auto; */
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.roverPic {
+  width: 100%;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.rover-cameras    {
+  /* width: 50%; */
+  float: left;
+  padding: 20px;
+  width: 45vw;
+}
+.camera-table  {
+  width: 45vw;
+  margin-left: 45vw;
+}
+h1, h2, h3, h4, .navbar {
+  text-align: center;
+}
+.roverTitleImage {
+  margin-left: 15%;
+}
+.photo {
+  max-width: 50vw;
+}
+.welcomeContainerDiv, .queryExamplesDiv, .missionManifestDiv {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  flex-direction: column;
 }
-
-.App-link {
-  color: #61dafb;
+.missionManifestDiv, .PhotoAttributesDiv, .queryExamplesDiv {
+  border: 3px solid black;
+  width: 55vw;
+  padding: 20px 80px;
+  margin: 20px auto;
+  
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nasaLists {
+  margin-left: -20%;
+}
+.nasaParagraphDiv{
+  padding: 20px 40px;
+}
+.nasaHr {
+  width: 55vw;
 }

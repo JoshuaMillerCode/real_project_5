@@ -1,0 +1,19 @@
+.exampleContainerDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.exampleTopDiv{
+    border: 3px solid black;
+    width: 55vw;
+    padding: 20px 80px;
+    margin: 20px auto;
+}
+.showJson {
+    max-width: 50vw;
+    white-space: pre-line;
+}
+p {
+    text-align: center;
+}

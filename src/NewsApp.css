@@ -17,3 +17,21 @@
 p {
     text-align: center;
 }
+.exampleTable1 {
+    border: 8px solid black;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: red;
+  width: 55vw;
+}
+.exampleTable1 tr td{
+    border: 1.3px solid black;
+    padding: 10px;
+    background-color: white;
+    text-align: left;
+  }
+  .exampleTable1 tr td{
+      max-width: 40vw;
+      white-space:wrap;
+  }

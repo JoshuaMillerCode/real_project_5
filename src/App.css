@@ -49,7 +49,7 @@
   width: 45vw;
   margin-left: 45vw;
 }
-h1, h2, h3, h4, .navbar {
+h1, h2, h3, h4, p, .navbar {
   text-align: center;
 }
 .roverTitleImage {
@@ -77,6 +77,11 @@ h1, h2, h3, h4, .navbar {
 .nasaParagraphDiv{
   padding: 20px 40px;
 }
-.nasaHr {
+.exampleHr {
   width: 55vw;
+}
+.exampleIntro {
+  width: 55vw;
+  margin: 20px auto;
+  
 }

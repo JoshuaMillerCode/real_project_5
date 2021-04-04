@@ -119,7 +119,7 @@ export default function Examples2() {
   
   </p>
   <h4>***********************  Dont forget to remove key below! **********************</h4>
-  <h3>My key for testing:   506994c0ec454ed49cd6d44cbd794afa</h3>
+  <h3>My key for testing:   </h3>
   <br />
   <br />
 <div className='exampleContainerDiv'>

@@ -25,7 +25,7 @@ export default function Examples4() {
       
       
       <h4>***********************  Dont forget to remove key below! **********************</h4>
-      <h3>My key for testing:   AIzaSyD-n8V6OiqKf2BYc_YnpdksuOHUkCkd5tE</h3>
+      <h3>My key for testing:   </h3>
       <br />
       <br />
     <div className='exampleContainerDiv'>

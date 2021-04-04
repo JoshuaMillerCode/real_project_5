@@ -205,7 +205,7 @@ export default function Examples3() {
   
   </p>
   <h4>***********************  Dont forget to remove key below! **********************</h4>
-  <h3>My key for testing:  fe27de2</h3>
+  <h3>My key for testing:  </h3>
   <br />
   <br />
 

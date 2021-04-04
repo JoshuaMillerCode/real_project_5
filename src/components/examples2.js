@@ -86,7 +86,7 @@ const topHeadlinesJson2 =
           "publishedAt": "2021-04-03T14:33:00Z",
           "content": "Amazon.com Inc has apologized to U.S. Rep. Mark Pocan, D-Wis., admitting to scoring an own goal in its initial denial of his suggestion that its drivers were sometimes forced to urinate in bottles du… [+1834 chars]"
           }
-export default function Examples() {
+export default function Examples2() {
 //   const [photoData, setPhotoData] = useState([]);
 //   useEffect(() => {
 //     fetchPhoto();
@@ -136,6 +136,14 @@ export default function Examples() {
 <hr className='exampleHr' />
 <br />
 <table className='exampleTable1'>
+<tr className='exampleTdDescriptions'> 
+    <td className='exampleTdDescriptions'>
+    <b>PARAMETERS</b>
+    </td>
+    <td className='exampleTdDescriptions'>
+    <b>DESCRIPTION</b>
+    </td>
+</tr>
 <tr> 
     <td>
     <b>apiKey</b>
@@ -233,7 +241,7 @@ export default function Examples() {
 <br />
 <br />
 <br />
-<h2>Top-Headllines Endpoint</h2>  
+<h2>Top-Headlines Endpoint</h2>  
 <h4>Top-Headline searches return breaking news headlines for countries, categories, and singular publishers. 
   <br />This is perfect for use with news tickers or anywhere you want to display live up-to-date news headlines.</h4>
 <div className='exampleTopDiv'>
@@ -241,6 +249,14 @@ export default function Examples() {
 <hr className='exampleHr' />
 <br />
 <table className='exampleTable1'>
+<tr className='exampleTdDescriptions'> 
+    <td className='exampleTdDescriptions'>
+    <b>PARAMETERS</b>
+    </td>
+    <td className='exampleTdDescriptions'>
+    <b>DESCRIPTION</b>
+    </td>
+</tr>
 <tr> 
     <td>
     <b>apiKey</b>

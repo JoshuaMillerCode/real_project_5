@@ -31,7 +31,8 @@ p {
     background-color: white;
     text-align: left;
   }
-  .exampleTable1 tr td{
+  .exampleTable1, tr, td{
       max-width: 40vw;
       white-space:wrap;
+      
   }

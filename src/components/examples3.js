@@ -548,7 +548,7 @@ export default function Examples3() {
 <h2>Query Examples using s:</h2>
 <hr className='exampleHr' />
 <h4><i>http://www.omdbapi.com/?apikey=fe27de2&s=superman&type=movie</i></h4>
-<p>Searches the movie database for the <i><b>title</b></i> of  <i><b>superman</b></i> and a <i><b>plot</b></i> of <i><b>full</b></i> <br />will return an object that has an array of 10 objects in and it, and it will look like this:</p>
+<p>Searches the movie database for the <i><b>title</b></i> of  <i><b>superman</b></i> and a <i><b>plot</b></i> of <i><b>full</b></i> <br />It will return an object that has an array of 10 objects in and it, and it will look like this:</p>
 <pre className='showJson'>
 {JSON.stringify(searchTitle, null, 2)}
 </pre>

@@ -3,12 +3,15 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    
 }
 .exampleTopDiv{
     border: 3px solid black;
     width: 55vw;
     padding: 20px 80px;
     margin: 20px auto;
+    border-radius: 20px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
 }
 .showJson {
     max-width: 50vw;
@@ -24,6 +27,8 @@ p {
   border-radius: 15px;
   background-color: red;
   width: 55vw;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+  
 }
 .exampleTable1 tr td{
     border: 1.3px solid black;
@@ -32,7 +37,7 @@ p {
     text-align: left;
   }
   .exampleTable1, tr, td{
-      max-width: 40vw;
+      max-width: 55vw;
       white-space:wrap;
       
   }

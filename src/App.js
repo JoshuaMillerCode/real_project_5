@@ -7,6 +7,7 @@ import "./NewsApp.css";
 import Examples from "./components/examples";
 import Examples2 from "./components/examples2";
 import Examples3 from "./components/examples3";
+import Examples4 from "./components/examples4";
 
 export default function App() {
   return (
@@ -16,7 +17,7 @@ export default function App() {
           <Route component={Examples} path="/Examples" />
           <Route component={Examples2} path="/Examples2" />
           <Route component={Examples3} path="/Examples3" />
-          
+          <Route component={Examples4} path="/Examples4" />
       </div>
     </BrowserRouter>
   );

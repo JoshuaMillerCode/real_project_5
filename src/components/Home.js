@@ -23,6 +23,8 @@ import React from "react";
           <Link className="home-link" to="/Examples2" ><h2>News Examples</h2></Link>
           <Link className="home-link" to="/Examples3" ><h2>Movie Examples</h2></Link>
           <Link className="home-link" to="/Examples4" ><h2>Youtube Examples</h2></Link>
+          <Link className="home-link" to="/Examples5" ><h2>Edamam Examples</h2></Link>
+          <Link className="home-link" to="/Examples6" ><h2>Pokémon Examples</h2></Link>
         </div>
       
 

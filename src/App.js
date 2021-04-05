@@ -8,6 +8,8 @@ import Examples from "./components/examples";
 import Examples2 from "./components/examples2";
 import Examples3 from "./components/examples3";
 import Examples4 from "./components/examples4";
+import Examples5 from "./components/examples5";
+import Examples6 from "./components/examples6.js";
 
 export default function App() {
   return (
@@ -18,6 +20,8 @@ export default function App() {
           <Route component={Examples2} path="/Examples2" />
           <Route component={Examples3} path="/Examples3" />
           <Route component={Examples4} path="/Examples4" />
+          <Route component={Examples5} path="/Examples5" />
+          <Route component={Examples6} path="/Examples6" />
       </div>
     </BrowserRouter>
   );

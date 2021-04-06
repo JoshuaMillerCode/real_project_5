@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import NavBar from "./NavBar";
-const apiKey = process.env.REACT_APP_NASA_KEY;
+
 const exampleYouTube = {
   "kind": "youtube#searchListResponse",
   "etag": "8KND9hH4lSbXhG6A_b5HyaNif48",
@@ -137,6 +137,7 @@ export default function Examples4() {
 
       return (
       <>
+      <NavBar></NavBar>
                   <div className='topSection'>
                 <div  className='titleImage'>
                   <img src='/img/youtube.jpg'></img>
@@ -146,7 +147,7 @@ export default function Examples4() {
                 </div>
             </div>
               <br />
-        <NavBar></NavBar>
+        
         <h2> If you dont't have it yet get your Free <a target='_blank' href='https://developers.google.com/youtube/registering_an_application'>YouTube API</a> key</h2>
         <br />
     <h1>YouTube API</h1> 
@@ -704,6 +705,10 @@ When a search request subsequently sets the forDeveloper parameter to true, the 
        <br />
     </div>
     </div>
+    <br/>
+<br/>
+<br/>
+<br/>
     </>
       )
     }

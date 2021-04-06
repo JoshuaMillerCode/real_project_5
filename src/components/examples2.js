@@ -1,7 +1,6 @@
-
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import NavBar from "./NavBar";
-const apiKey = process.env.REACT_APP_NASA_KEY;
+
 const everythingJson =
 {
   "source": {
@@ -87,20 +86,10 @@ const topHeadlinesJson2 =
           "content": "Amazon.com Inc has apologized to U.S. Rep. Mark Pocan, D-Wis., admitting to scoring an own goal in its initial denial of his suggestion that its drivers were sometimes forced to urinate in bottles du… [+1834 chars]"
           }
 export default function Examples2() {
-//   const [photoData, setPhotoData] = useState([]);
-//   useEffect(() => {
-//     fetchPhoto();
-//     async function fetchPhoto() {
-//       const res = await fetch(
-//         `https://api.nasa.gov/mars-photos/api/v1/rovers/Perseverance/photos?sol=34&page=2&api_key=${apiKey}`
-//       );
-//       const data = await res.json();
-//       setPhotoData(data.photos[12]);
-//       }
-//   }, []);
-// console.log(photoData[12])
+
   return (
-  <>
+  <>  
+  <NavBar></NavBar>
               <div className='topSection'>
             <div  className='titleImage'>
               <img src='/img/news.jpg'></img>
@@ -110,7 +99,7 @@ export default function Examples2() {
             </div>
         </div>
           <br />
-    <NavBar></NavBar>
+    
           
 <h1>News API</h1> 
 <p>News API allows you to search through over 75,000 news sources and blogs dating back the last 3 years.<br />
@@ -126,12 +115,6 @@ export default function Examples2() {
 <h2>Everything Endpoint</h2>
 <h4>Everything searches are ideal for news analysis and article discovery</h4>
 <div className='exampleTopDiv'>
-
-
-
-
-
-
 <h2>Query Parameters:</h2>
 <hr className='exampleHr' />
 <br />
@@ -350,6 +333,10 @@ export default function Examples2() {
 </pre>
 </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
   </>
   );
 }

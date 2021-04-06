@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import NavBar from "./NavBar";
-const apiKey = process.env.REACT_APP_NASA_KEY;
+
 
 const exampleEmdamam ={
     "q": "chicken",
@@ -694,6 +694,7 @@ export default function Examples5() {
 
     return (
     <>
+    <NavBar></NavBar>
                 <div className='topSection'>
               <div  className='titleImage'>
                 <img src='/img/edamam.jpg'></img>
@@ -703,7 +704,7 @@ export default function Examples5() {
               </div>
           </div>
             <br />
-      <NavBar></NavBar>
+      
       <h2> If you don't have it yet, get your Free <a target='_blank' href='https://developer.edamam.com/'>Edamam API</a> key</h2>
       <br />
   <h1>Edamam API</h1> 
@@ -1332,7 +1333,10 @@ You can combine more than one nutrient ranges in a search requests
       </pre>
       </div>
 </div>
-  
+<br/>
+<br/>
+<br/>
+<br/>
   </>
   )
   }

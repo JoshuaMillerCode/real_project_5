@@ -1,5 +1,4 @@
-
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import NavBar from "./NavBar";
 const apiKey = process.env.REACT_APP_NASA_KEY;
 const manifestJson =
@@ -24,20 +23,10 @@ const manifestJson =
       ]
       }
 export default function Examples() {
-//   const [photoData, setPhotoData] = useState([]);
-//   useEffect(() => {
-//     fetchPhoto();
-//     async function fetchPhoto() {
-//       const res = await fetch(
-//         `https://api.nasa.gov/mars-photos/api/v1/rovers/Perseverance/photos?sol=34&page=2&api_key=${apiKey}`
-//       );
-//       const data = await res.json();
-//       setPhotoData(data.photos[12]);
-//       }
-//   }, []);
-// console.log(photoData[12])
+
   return (
-  <>            
+  <>
+   <NavBar />      
   <div className='topSection'>
   <div  className='titleImage'>
     <img src='/img/nasa.jpg'></img>
@@ -47,11 +36,7 @@ export default function Examples() {
   </div>
 </div>
 <br />
-    <NavBar></NavBar>
-          {/* <img
-          src={photoData.img_src}
-          className="photo"
-        /> */}
+
         <h2>If you dont' have one yet, get your <a target='_blank' href='https://api.nasa.gov/'>NASA-API key</a></h2>
         <h1>Nasa's Mars Rover Api</h1>
         <div className='exampleIntro'>
@@ -204,6 +189,10 @@ It will return entries from every single day the rover has been active.  An exam
 <i><h4>https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/latest_photos?api_key=DEMO_KEY</h4></i>
 <br />
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
   </>
   );
 }

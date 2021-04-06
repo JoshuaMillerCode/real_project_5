@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React  from "react";
 import NavBar from "./NavBar";
-const apiKey = process.env.REACT_APP_NASA_KEY;
 
 export default function Examples5() {
 

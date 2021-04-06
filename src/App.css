@@ -1,7 +1,9 @@
-.topSection{
+.topSectionHome{
     width: 70%;
     margin: 0 auto;
     margin-top: 25px;
+    display: flex;
+    flex-direction: column;
 }
 .titleImage {
   
@@ -12,7 +14,14 @@
 .apiGoLogoDiv {
   width:49%;
   float:right;
-  
+}
+.topSection{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.apiGoLogoHomeDiv{
+  margin: 0 auto;
 }
 .showJson {
   margin-left: 40px;
@@ -23,18 +32,20 @@
   padding: 10px;
   border-radius: 15px;
   background-color: red;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
 }
 .cameraTable tr td{
   border: 1.3px solid black;
   padding: 10px;
   background-color: white;
+  
 }
 .tableTitles {
   text-align: center;
 }
 .rover-info{
   max-width: 1100px;
-  /* margin: 0 auto; */
+  
 }
 .roverPic {
   width: 100%;
@@ -48,6 +59,7 @@
 .camera-table  {
   width: 45vw;
   margin-left: 45vw;
+  
 }
 h1, h2, h3, h4, p, .navbar {
   text-align: center;
@@ -63,13 +75,16 @@ h1, h2, h3, h4, p, .navbar {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+  border-radius: 15px;
 }
 .missionManifestDiv, .PhotoAttributesDiv, .queryExamplesDiv {
   border: 3px solid black;
   width: 55vw;
   padding: 20px 80px;
   margin: 20px auto;
-  
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+  border-radius: 15px;
 }
 .nasaLists {
   margin-left: -20%;
@@ -79,15 +94,60 @@ h1, h2, h3, h4, p, .navbar {
 }
 .exampleHr {
   width: 55vw;
-  
 }
 .exampleIntro {
   width: 65vw;
   margin: 20px auto;
-
-  
 }
 .exampleTdDescriptions{
   text-align: center;
   background-color: aquas;
+}
+.exampleContainerDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  
+}
+.exampleTopDiv{
+  border: 3px solid black;
+  width: 55vw;
+  padding: 20px 80px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+}
+.showJson {
+  max-width: 50vw;
+  white-space: pre-line;
+}
+p {
+  text-align: center;
+}
+.exampleTable1 {
+  border: 8px solid black;
+margin: 0 auto;
+padding: 10px;
+border-radius: 15px;
+background-color: red;
+width: 55vw;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+
+}
+.exampleTable1 tr td{
+  border: 1.3px solid black;
+  padding: 10px;
+  background-color: white;
+  text-align: left;
+}
+.exampleTable1, tr, td{
+    max-width: 55vw;
+    white-space:wrap;
+    
+}
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }

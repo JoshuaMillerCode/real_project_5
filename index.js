@@ -3,7 +3,6 @@ const { exec } = require("child_process");
 const { default: consolaGlobalInstance } = require("consola");
 const fs = require("fs");
 const inquirer = require("inquirer");
-const { stdout, stderr } = require("process");
 const generate = require('./generateFunctions');
 const CURR_DIR = process.cwd()
 
@@ -14,7 +13,7 @@ function promptUser(){
             name: 'apiProjectChoice',
             type: 'list',
             message: 'Please pick what API you would like to implement into your project. If your not ready to decide, dont worry just press CTRL + C to stop',
-            choices: ['nasa', 'marvel', 'movie', 'youtube',  'news']
+            choices: ['Nasa', 'Movie', 'Youtube',  'News', 'Edamam', 'RAWG Video Games', 'LastFm Music']
         },
         {
             name: 'apiChoice',
@@ -46,32 +45,10 @@ function promptUser(){
                 }
             }
         },
-        {
-            name: 'nasaChoice',
-            type: 'list',
-            message: "Which NASA api would you like to use?",
-            choices: ['Picture of the day', 'Rovers'],
-            when: (response) => response.apiProjectChoice === 'nasa'
-        },
-        {
-            name: 'roverChoice',
-            type: 'list',
-            message: "Please pick which rover you would like to implement?",
-            choices: ['Spirit', 'Curiosity', 'Opportunity', 'Perseverance'],
-            when: (response) => response.nasaChoice === 'Rovers'
-        }
     ])
 }
 
-function generateDotEnv(response){
-    // if(response.apiProjectChoice == "nasa"){
-    //     console.log('nasa')
-    // }else {
-    //     console.log('news')
-    // }
-return`
-API_KEY=${response.apiKey}
-`}
+
 
 
 promptUser().then(function(response){
@@ -85,7 +62,8 @@ promptUser().then(function(response){
     consola.info(`Implenting ${projectChoice} API...`);
     consola.info(`Just imagine the possibilities with this AMAZING pre-written code!`);
     consola.info(`But seriously, thank you for choosing this package for this great project.`);
-    consola.info(`We are truly grateful.`)
+    consola.info(`We are truly grateful.`);
+    consola.info('Be patient, this might take a few minutes...')
     exec(`cd ${projectName} && npm i`, (err, stdout, stderr) => {
         if (err){
             consola.error(`Hmmmm... We've come across an error, but don't worry: ${err}`);
@@ -145,50 +123,34 @@ function createDirectoryContents (templatePath, newProjectPath) {
   }
 
   function dynamicFiles (response, projectName) {
-    if(response.apiProjectChoice == "nasa" && response.nasaChoice == 'Picture of the day'){
-        let nasaPhotoJs = generate.NasaPhotoJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NasaPhoto.js`, nasaPhotoJs);
+    switch (response.apiProjectChoice) {
+        case 'Nasa':
+            let nasaExample = generate.NasaExample(response);
+            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/examples.js`, nasaExample);
 
-        let nasaApp = generate.NasaPhotoAppJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/App.js`, nasaApp);
+            let apiGo = generate.ApiGoPage(response);
+            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/APIGo.js`, apiGo);
 
-        let nasaHome = generate.NasaPhotoHomeJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/Home.js`, nasaHome);
+            let config = generate.ConfigJS(response);
+            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/config.js`, config)
+            break;
+        case 'Movie':
+            
+            break;
+        case 'Youtube':
+            
+            break;
+        case 'News':
+            
+            break;
+        case 'Edamam':
+            
+            break;
+        case 'RAWG Video Games':
+            
+            break;
+        case 'LastFm Music':
 
-        let nasaNavBar = generate.NasaNavBarJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NavBar.js`, nasaNavBar);
-
-        let nasaEnv = generate.DotEnv(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, nasaEnv);
-
-
-    }else if(response.apiProjectChoice == "nasa" && response.nasaChoice == 'Rovers') {
-        let nasaRoverJs = generate.NasaRoverJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/${response.roverChoice}.js` , nasaRoverJs);
-
-        let nasaApp = generate.NasaRoverAppJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/App.js`, nasaApp);
-
-        let nasaHome = generate.NasaRoverHomeJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/Home.js`, nasaHome);
-
-        let nasaNavBar = generate.NasaNavBarJs(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/NavBar.js`, nasaNavBar);
-
-        let nasaEnv = generate.DotEnv(response);
-        fs.writeFileSync(`${CURR_DIR}/${projectName}/.env`, nasaEnv);
-
-    }else if(response.apiProjectChoice == "movie"){
-        console.log('movie');
-        let movieJs = generateMovieJs(response);
-        fs.writeFileSync("./src/components/Movie.js", movieJs);
-    }else if(response.apiProjectChoice == "news"){
-        console.log('news');
-    }else if(response.apiProjectChoice == "marvel"){
-        console.log('marvel');
-    }else if(response.apiProjectChoice == "youtube"){
-        console.log('youtube');
-    }else {
-        console.log('super cool')
+            break;
     }
   }

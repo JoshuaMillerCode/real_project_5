@@ -121,36 +121,39 @@ function createDirectoryContents (templatePath, newProjectPath) {
     });
 
   }
+   function writeDynamicFiles (generateFunc, response, projectName) {
+        let content = generateFunc
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/examples.js`, content);
+
+        let apiGo = generate.ApiGoPage(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/APIGo.js`, apiGo);
+
+        let config = generate.ConfigJS(response);
+        fs.writeFileSync(`${CURR_DIR}/${projectName}/src/config.js`, config)
+   }
 
   function dynamicFiles (response, projectName) {
     switch (response.apiProjectChoice) {
         case 'Nasa':
-            let nasaExample = generate.NasaExample(response);
-            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/examples.js`, nasaExample);
-
-            let apiGo = generate.ApiGoPage(response);
-            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/components/APIGo.js`, apiGo);
-
-            let config = generate.ConfigJS(response);
-            fs.writeFileSync(`${CURR_DIR}/${projectName}/src/config.js`, config)
+            writeDynamicFiles(generate.NasaExample(response), response, projectName);
             break;
         case 'Movie':
-            
+            writeDynamicFiles(generate.MovieExample(response), response, projectName);
             break;
         case 'Youtube':
-            
+            writeDynamicFiles(generate.YoutubeExample(response), response, projectName);
             break;
         case 'News':
-            
+            writeDynamicFiles(generate.NewsExample(response), response, projectName);
             break;
         case 'Edamam':
-            
+            writeDynamicFiles(generate.EdamamExample(response), response, projectName);
             break;
         case 'RAWG Video Games':
-            
+            // writeDynamicFiles(generate.MovieExample(), response, projectName);
             break;
         case 'LastFm Music':
-
+            // writeDynamicFiles(generate.MovieExample(), response, projectName);
             break;
     }
   }

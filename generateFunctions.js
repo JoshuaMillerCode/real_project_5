@@ -1605,7 +1605,7 @@ const idOrTitle = {
     "Director": "Richard Donner",
     "Writer": "Jerry Siegel (character created by: Superman), Joe Shuster (character created by: Superman), Mario Puzo (story), Mario Puzo (screenplay), David Newman (screenplay), Leslie Newman (screenplay), Robert Benton (screenplay)",
     "Actors": "Marlon Brando, Gene Hackman, Christopher Reeve, Ned Beatty",
-    "Plot": "An alien orphan is sent from his dying planet to Earth, where he grows up to become his adoptive home's first and greatest superhero.",
+    "Plot": "An alien orphan is sent from his dying planet to Earth, where he grows up to become his adoptive home\'s first and greatest superhero.",
     "Language": "English",
     "Country": "USA, UK, Canada, Switzerland, France",
     "Awards": "Nominated for 3 Oscars. Another 16 wins & 20 nominations.",
@@ -1678,7 +1678,7 @@ const idOrTitle = {
         "Director": "Lal, Siddique",
         "Writer": "Lal (screenplay,  story & dialogue), Siddique",
         "Actors": "N.N. Pillai, Mukesh, Kanaka, Philomina",
-        "Plot": "Two rival clans under Anjooran and Achamma have a history of mutual hatred. Anjooran, convinced that women are the root of all evil, ensures that all his sons stay bachelors. The youngest son, Ramabhadran falls in love with Malu, from Achamma's family. A complicated tug-of-war ensues.",
+        "Plot": "Two rival clans under Anjooran and Achamma have a history of mutual hatred. Anjooran, convinced that women are the root of all evil, ensures that all his sons stay bachelors. The youngest son, Ramabhadran falls in love with Malu, from Achamma\'s family. A complicated tug-of-war ensues.",
         "Language": "Malayalam",
         "Country": "India",
         "Awards": "2 wins.",
@@ -2184,8 +2184,8 @@ function MovieFetch(){
 function NewsExample(response){
     return(
         `
-        import React, { useState, useEffect } from "react";
-import NavBar from "./NavBar";
+        
+import React, { useState, useEffect } from "react";
 
 const everythingJson =
 {
@@ -2194,12 +2194,12 @@ const everythingJson =
   "name": "Mashable"
   },
   "author": "Proma Khosla",
-  "title": "'WandaVision' wraps up with a straightforward finale — and classic MCU tease",
-  "description": "WandaVision's ninth and final episode dropped on Friday, a surprisingly straightforward 49 minutes after one of the most sprawling and ambitious experiments in television history. \nThat's refreshing compared to the increasingly bloated run times of superhero …",
+  "title": "'WandaVision\' wraps up with a straightforward finale — and classic MCU tease",
+  "description": "WandaVision\'s ninth and final episode dropped on Friday, a surprisingly straightforward 49 minutes after one of the most sprawling and ambitious experiments in television history. That\'s refreshing compared to the increasingly bloated run times of superhero …",
   "url": "https://mashable.com/article/wandavision-finale/",
   "urlToImage": "https://mondrian.mashable.com/2021%252F03%252F05%252F97%252F0c7cfdfb9f424b848077da3ef4f18557.be7f7.jpg%252F1200x630.jpg?signature=3E6G9wiOXor7slwRSaIuo_-9aZ4=",
   "publishedAt": "2021-03-05T19:19:37Z",
-  "content": "WandaVision's ninth and final episode dropped on Friday, a surprisingly straightforward 49 minutes after one of the most sprawling and ambitious experiments in television history. \nThat's refreshing… [+6242 chars]"
+  "content": "WandaVision\'s ninth and final episode dropped on Friday, a surprisingly straightforward 49 minutes after one of the most sprawling and ambitious experiments in television history. That\'s refreshing… [+6242 chars]"
   }
   const everythingJson2 = {
     
@@ -2209,7 +2209,7 @@ const everythingJson =
       },
       "author": "Noor Zainab Hussain, Carolyn Cohn",
       "title": "As Tesla takes the plunge, wary insurers watch crypto craze from the sidelines - Reuters UK",
-      "description": "If Elon Musk's Tesla wanted to insure all of its recent $1.5 billion bitcoin investment against the myriad of pitfalls it could encounter, like hacks, theft and fraud, it would be out of luck.",
+      "description": "If Elon Musk\'s Tesla wanted to insure all of its recent $1.5 billion bitcoin investment against the myriad of pitfalls it could encounter, like hacks, theft and fraud, it would be out of luck.",
       "url": "https://www.reuters.com/article/us-crypto-currency-insurance-focus-idUSKBN2BO5IX",
       "urlToImage": "https://static.reuters.com/resources/r/?m=02&d=20210401&t=2&i=1557030921&r=LYNXMPEH302WP&w=800",
       "publishedAt": "2021-04-01T13:12:00Z",
@@ -2224,11 +2224,11 @@ const everythingJson =
     },
     "author": "Mark Kaufman",
     "title": "See where NASA just zapped this odd Martian rock with a laser",
-    "description": "On day 37 of its Martian mission (known as \"sol 37\"), the Perseverance rover zapped a curious, holey rock with a laser 10 times. \nIt wasn't for sport. The laser is part of the rover's SuperCam, which looms atop the car-sized robot like a crow's nest on a ship…",
+    "description": "On day 37 of its Martian mission (known as \\"sol 37\\"), the Perseverance rover zapped a curious, holey rock with a laser 10 times. It wasn\'t for sport. The laser is part of the rover\'s SuperCam, which looms atop the car-sized robot like a crow\'s nest on a ship…",
     "url": "https://mashable.com/article/mars-perseverance-rover-zapped-rock-laser/",
     "urlToImage": "https://mondrian.mashable.com/2021%252F04%252F03%252F4d%252F74b261f103fb446296caeecce8d727e3.b28e9.png%252F1200x630.png?signature=ui7NYiefofM6K-n0F4jtLi33Q5g=",
     "publishedAt": "2021-04-03T17:17:31Z",
-    "content": "On day 37 of its Martian mission (known as \"sol 37\"), the Perseverance rover zapped a curious, holey rock with a laser 10 times. \nIt wasn't for sport. The laser is part of the rover's SuperCam, whic… [+2556 chars]"
+    "content": "On day 37 of its Martian mission (known as \\"sol 37\\"), the Perseverance rover zapped a curious, holey rock with a laser 10 times. It wasn\'t for sport. The laser is part of the rover\'s SuperCam, whic… [+2556 chars]"
     }
     const topHeadlinesJson = {
       "source": {
@@ -2241,7 +2241,7 @@ const everythingJson =
       "url": "https://www.independent.co.uk/arts-entertainment/music/news/dmx-overdose-hospital-drug-heart-attack-b1826418.html",
       "urlToImage": "https://static.independent.co.uk/2021/04/03/16/newFile.jpg?width=1200&auto=webp&quality=75",
       "publishedAt": "2021-04-03T16:14:18Z",
-      "content": "DMX is in critical condition after taking a drug overdose, it has been reported.\nThe rapper, 50, is believed to have been rushed to a New York hospital on Friday (2 April), with sources claiming the… [+2103 chars]"
+      "content": "DMX is in critical condition after taking a drug overdose, it has been reported.The rapper, 50, is believed to have been rushed to a New York hospital on Friday (2 April), with sources claiming the… [+2103 chars]"
       }
 const topHeadlinesJson2 =
       {
@@ -2294,7 +2294,7 @@ export default function Examples() {
   
   </p>
   <h4>***********************  Dont forget to remove key below! **********************</h4>
-  <h3>My key for testing: ${response.apiKey ? response.apiKey : 'API-KEY was not provided'}  </h3>
+  <h3>My key for testing: API-KEY was not provided  </h3>
   <br />
   <br />
 <div className='exampleContainerDiv'>
@@ -2532,6 +2532,7 @@ export default function Examples() {
   </>
   );
 }
+        
         `
     )
 }

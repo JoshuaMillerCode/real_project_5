@@ -12,7 +12,7 @@ export default function App() {
     <BrowserRouter>
       <div className="app">
         <NavBar />
-          <Route component={APIGo} path="/" />
+          <Route component={APIGo} path="/" exact/>
           <Route component={Examples} path="/examples" />
       </div>
     </BrowserRouter>

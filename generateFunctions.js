@@ -49,10 +49,10 @@ function NasaExample(response){
                
           <div className='topSection'>
           <div  className='titleImage'>
-            <img src='/img/nasa.jpg'></img>
+            <img src='https://api-go.app/img/nasa.jpg'></img>
           </div>
           <div className='apiGoLogoDiv'> 
-          <img src='/img/api-go.png'></img>
+          <img src='https://api-go.app/img/api-go.png'></img>
           </div>
         </div>
         <br />
@@ -127,7 +127,7 @@ function NasaExample(response){
         <h1>Perseverance rover cameras:</h1>
         <div className='rover-info'>
         <div className='rover-cameras'>
-          <img className='roverPic' src='img/perseverance-cameras.jpg'></img>
+          <img className='roverPic' src='https://api-go.app/img/perseverance-cameras.jpg'></img>
         </div>
         <div className='camera-table'>
         <table className='cameraTable'>
@@ -921,10 +921,10 @@ export default function Examples() {
      
         <div className='topSection'>
               <div  className='titleImage'>
-                <img src='/img/edamam.jpg'></img>
+                <img src='https://api-go.app/img/edamam.jpg'></img>
               </div>
               <div className='apiGoLogoDiv'>  
-              <img src='/img/api-go.png'></img>
+              <img src='https://api-go.app/img/api-go.png'></img>
               </div>
           </div>
             <br />
@@ -1782,10 +1782,10 @@ export default function Examples() {
       <>
             <div className='topSection'>
                 <div  className='titleImage'>
-                  <img src='/img/movie.jpg'></img>
+                  <img src='https://api-go.app/img/movie.jpg'></img>
                 </div>
                 <div className='apiGoLogoDiv'> 
-                <img src='/img/api-go.png'></img>
+                <img src='https://api-go.app/img/api-go.png'></img>
                 </div>
             </div>
               <br />
@@ -2278,10 +2278,10 @@ export default function Examples() {
   
         <div className='topSection'>
             <div  className='titleImage'>
-              <img src='/img/news.jpg'></img>
+              <img src='https://api-go.app/img/news.jpg'></img>
             </div>
             <div className='apiGoLogoDiv'> 
-            <img src='/img/api-go.png'></img>
+            <img src='https://api-go.app/img/api-go.png'></img>
             </div>
         </div>
           <br />
@@ -2703,10 +2703,10 @@ export default function Examples() {
        
                   <div className='topSection'>
                 <div  className='titleImage'>
-                  <img src='/img/youtube.jpg'></img>
+                  <img src='https://api-go.app/img/youtube.jpg'></img>
                 </div>
                 <div className='apiGoLogoDiv'> 
-                <img src='/img/api-go.png'></img>
+                <img src='https://api-go.app/img/api-go.png'></img>
                 </div>
             </div>
               <br />
@@ -3300,6 +3300,287 @@ function YoutubeFetch() {
     )
 }
 
+function RawgExample(response) {
+    return(
+        `
+        import React from 'react';
+
+export default function Info() {
+    
+    const exampleData = {
+        "slug": "prey",
+        "name": "Prey (2017)",
+        "playtime": 10,
+        "platforms": [],
+        "stores": [],
+        "released": "2017-05-05",
+        "tba": false,
+        "background_image": "https://media.rawg.io/media/games/e6d/e6de699bd788497f4b52e2f41f9698f2.jpg",
+        "rating": 4.28,
+        "rating_top": 5,
+        "ratings": [],
+        "ratings_count": 1485,
+        "reviews_text_count": 13,
+        "added": 6120,
+        "added_by_status": {},
+        "metacritic": 80,
+        "suggestions_count": 633,
+        "updated": "2021-02-16T09:48:36",
+        "id": 39,
+        "score": "65.94736",
+        "clip": null,
+        "tags": [],
+        "esrb_rating": {},
+        "user_game": null,
+        "reviews_count": 1508,
+        "saturated_color": "0f0f0f",
+        "dominant_color": "0f0f0f",
+        "short_screenshots": [],
+        "parent_platforms": [],
+        "genres": []
+        }
+
+    return (
+        <>            
+            <div className='topSection'>
+                <div  className='titleImage'>
+            <img src='https://api-go.app/img/rawg.jpg'></img>
+                </div>
+                <div className='apiGoLogoDiv'> 
+                    <img src='https://api-go.app/img/api-go.png'></img>
+                </div>
+            </div>
+        <br />
+        <h2>If you dont' have one yet, get your <a target='_blank' href='https://rawg.io/apidocs'>RAWG Api Key</a></h2>
+        <h1>RAWG Video Games Api</h1>
+        <div className='exampleIntro'>
+            <p>
+                RAWG Videos Games Api is a open source database that has over 500,000 games for 50 platforms. As said above, all you need is an api key to access the database and the freedom is yours to do what you want with the information given. The database gives the user everything you need to know about any video and is very powerful.
+            </p>
+        </div>
+        <br />
+        
+        <div className='endpointsDiv'>
+  
+        <div className='exampleContainerDiv'>
+
+
+  <div className='exampleTopDiv'>
+  <h1>Api Endpoints</h1>
+<hr className='exampleHr' />
+            <h4>These are the endpoints that would be added to the base URL depending on what the desired search for information is needed</h4>
+            <div className='exampleLists'>
+                <ul>
+                    <li>/games</li>
+                    <li>/genres</li>
+                    <li>/platforms</li>
+                    <li>/publishers</li>
+                    <li>/stores</li>
+                    <li>/tags</li>
+                </ul>
+        </div>
+            
+        Here's an example of the games endpoint that gathers information based upon the query parameters 
+            <br />
+            <br />
+            <i><h4>https://api.rawg.io/api/games?key=${response.apiKey ? response.apiKey : 'API_KEY_GOES_HERE'}&search=prey</h4></i>
+            <br />
+            <br />
+            Heres an example of the response that you will get back: 
+
+
+            <pre className='showJson'>
+                This is just one of the results from the results key inside the response object:
+                {JSON.stringify(exampleData, null, 2)}
+            </pre>
+        </div>
+        <br />
+        <br />
+        <br />
+        <h2>Game Query Parameters</h2>
+        <hr className='exampleHr2' />
+        <h4> There are different query parameters for each endpoints to help narrow down the search:</h4>
+        
+        <div className='exampleTable2'>
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Parameter</b></td>
+                    <td>Data Type</td>
+                    <td><b>Parameter</b></td>
+                    <td>Data Type</td>
+                </tr>
+                <tr>
+                    <td><b>page</b></td>
+                    <td>integer</td>
+                    <td><b>creators</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td><b>page_size</b></td>
+                    <td>integer</td>
+                    <td><b>dates</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td><b>search</b></td>
+                    <td>string</td>
+                    <td><b>updated</b></td>
+                    <td>string</td>
+
+                </tr>
+                <tr>
+                    <td><b>search_precise</b></td>
+                    <td>boolean</td>
+                    <td><b>platforms_count</b></td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td><b>search_exact</b></td>
+                    <td>boolean</td>
+                    <td><b>metacritic</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td><b>parent_platforms</b></td>
+                    <td>string</td>
+                    <td><b>exclude_collection</b></td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td><b>platforms</b></td>
+                    <td>string</td>
+                    <td><b>exclude_additions</b></td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><b>stores</b></td>
+                    <td>string</td>
+                    <td><b>exclude_parents</b></td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><b>developers</b></td>
+                    <td>string</td>
+
+                    <td><b>exclude_game_series</b></td>
+                    <td>boolean</td>
+                </tr>
+                <tr>
+                    <td><b>publishers</b></td>
+                    <td>string</td>
+
+                    <td><b>ordering</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td><b>genres</b></td>
+                    <td>string</td>
+                    <td><b>tags</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+
+                </tr>
+            </tbody>
+            </table>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h2>Genres, Platforms, and Stores Query Parameters</h2>
+            <hr className='exampleHr2' />
+            <div className='exampleTable3'>
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Parameter</b></td>
+                    <td><b>Data Type</b></td>
+                </tr>
+                <tr>
+                    <td><b>Ordering</b></td>
+                    <td>string</td>
+                </tr>
+                <tr>
+                    <td><b>page</b></td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td><b>page_size</b></td>
+                    <td>integer</td>
+                </tr>
+                </tbody>
+                </table>
+            </div>
+            <br />
+            <br />
+            <br />
+            <br />
+            <h2>Creator-Roles, Creators, Developers, Tags, and Publishers Query Parameters</h2>
+                <hr className='exampleHr2' />
+            <div className='exampleTable3'>
+
+            <table>
+                <thead>
+                <tr>
+                    <th colspan="2"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td><b>Parameter</b></td>
+                    <td><b>Data Type</b></td>
+                </tr>
+                <tr>
+                    <td><b>page</b></td>
+                    <td>integer</td>
+                </tr>
+                <tr>
+                    <td><b>page_size</b></td>
+                    <td>integer</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+<br />
+<br />
+<br />
+<br />
+        <div>
+            <h2>Writing out the fetch link</h2>
+            <hr className='exampleHr2' />
+            <div className='exampleTopDiv'>
+            <h4>While creating the fetch link the correct way to write it will be to put the base URL (https://api.rawg.io/api/) 
+                <br/><br/>
+                followed by the desired enpoint. The selected NEEDS to be followed by a question mark. After the endpoint follows
+                <br /><br />
+                 the desired query parameters, between every parameter there needs to be an ampersand (&). Take the search example 
+                 <br /><br />above for some reference, you can put as many query parameters as desired as long as they are all separated by ambersands (&).</h4>
+            
+            <p><i>For moore information please visit the <a href='https://api.rawg.io/docs/'>RAWG Api Docs</a></i></p>
+        </div></div></div></div>
+<br />
+<br />
+<br />
+<br />
+  </>
+    )
+}
+        `
+    )
+}
+
 function RawgFetch(){
     return(
         `
@@ -3317,6 +3598,229 @@ function RawgFetch(){
             }
         })()
     }, [])
+        `
+    )
+}
+
+function LastFmExample(response) {
+    return(
+        `
+        import React from 'react';
+// import LastFmHome from './LastFmHome';
+
+export default function Examples (props) {
+
+    const exampleData = {
+        "name": "Believe",
+        "artist": "Disturbed",
+        "url": "https://www.last.fm/music/Disturbed/Believe",
+        "image": [
+        {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/34s/dcf5cf4b9da64e979719a102acd222cc.png",
+        "size": "small"
+        },
+        {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/64s/dcf5cf4b9da64e979719a102acd222cc.png",
+        "size": "medium"
+        },
+        {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/174s/dcf5cf4b9da64e979719a102acd222cc.png",
+        "size": "large"
+        },
+        {
+        "#text": "https://lastfm.freetls.fastly.net/i/u/300x300/dcf5cf4b9da64e979719a102acd222cc.png",
+        "size": "extralarge"
+        }
+        ],
+        "streamable": "0",
+        "mbid": "c559efc2-f734-41ae-93bd-2d78414e0356"
+        }
+
+    return (
+        <>
+            <div className='topSection'>
+                <div  className='titleImage'>
+            <img src='https://api-go.app/img/lastfm.jpg'></img>
+                </div>
+                <div className='apiGoLogoDiv'> 
+                    <img src='https://api-go.app/img/api-go.png'></img>
+                </div>
+            </div>
+        <br />
+        <h2>If you dont' have one yet, get your <a target='_blank' href='https://www.last.fm/api#getting-started'>Last FM Api Key</a></h2>
+        <h1>Last FM Music Api</h1>
+        <div className='exampleIntro'>
+            <p>
+                The Last FM Music Api is a free api that lets you build your site desired site with Last FM's massive music library data collection. You can get pretty much any information about basically any song, album, and artist. There is also authentication and user features but that will not be covered here. This is information to get your basic GET requests to the api.
+            </p>
+        </div>
+        <br />
+        <h1>Api Methods</h1>
+        <div className='endpointsDiv'>
+  
+  
+            <h4>
+                These are the methods that would be added to the base URL depending on what the desired search for information is needed. <br/>
+                NOTE: These methods are only the methods that do NOT authentication,
+                <br />
+                 for more information about request methods that required authentication please visit the <a href='https://www.last.fm/api#getting-started'>Last FM Api Docs</a>
+            </h4>
+            <div className='exampleTables1'>
+            
+            <table className='exampleTable1'>
+                <thead>
+                <tr>
+                    <th colspan="2"><b>method=album</b></th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>insert after album</td>
+                        <td>params</td>
+                    </tr>
+                    <tr>
+                        <td>.getInfo</td>
+                        <td>- artist (required)<br/>- album (required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- username (optional)<br/>- lang(optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTags</td>
+                        <td>- artist (required)<br/>- album <br/>(required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- user <br/>(optional)<br/>- api_key <br/>(required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTopTags</td>
+                        <td>- artist (required)<br/>- album <br/>(required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- api_key <br/>(required)</td>
+                    </tr>
+                    <tr>
+                        <td>.search</td>
+                        <td>- limit (optional)<br/>-page (optional)<br/>-album (required)<br/>-api_key (required)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <br />
+            <br />
+
+            <table className='exampleTable1'>
+                <thead>
+                <tr>
+                    <th colspan="2">method=artist</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>insert after album</td>
+                        <td>params</td>
+                    </tr>
+                    <tr>
+                        <td>.getCorrection</td>
+                        <td>- artist (required)<br/>-api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getInfo</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- lang (optional)<br/>- autocorrect (optional)<br/>- username (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getSimilar</td>
+                        <td>- limit (optional)<br/>- artist (required)<br/>- autocorrect (optional)<br/>- mbid (optional) <br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTags</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- user (optional)<br/>- autocorrect (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTopAlbums</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- page (optional)<br/>- limit (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTopTags</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTopTracks</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- page (optional)<br/>- limit (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.search</td>
+                        <td>- limit (optional)<br/>- page (optional)<br/>- artist (required)<br/>- api_key (required)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br />
+            <br />
+            <br />
+            <br />
+           
+            <table className='exampleTable1'>
+                <thead>
+                <tr>
+                    <th colspan="2">method=track</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>insert after album</td>
+                        <td>params</td>
+                    </tr>
+                    <tr>
+                        <td>.getCorrection</td>
+                        <td>- artist (required)<br/>- track (required)<br/>-api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getInfo</td>
+                        <td>- artist (required)<br/>- mbid (optional)<br/>- track (required)<br/>- autocorrect (optional)<br/>- username (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getSimilar</td>
+                        <td>- limit (optional)<br/>- track (required)<br/>- artist (required)<br/>- autocorrect (optional)<br/>- mbid (optional) <br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTags</td>
+                        <td>- artist (required)<br/>- track (required)<br/>- mbid (optional)<br/>- user (optional)<br/>- autocorrect (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.getTopTags</td>
+                        <td>- artist (required)<br/>- track (required)<br/>- mbid (optional)<br/>- autocorrect (optional)<br/>- api_key (required)</td>
+                    </tr>
+                    <tr>
+                        <td>.search</td>
+                        <td>- limit (optional)<br/>- page (optional)<br/>- artist (required)<br/>- track (required)<br/>- api_key (required)</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <br />
+<br />
+<br />
+<h1>Querying the API</h1>
+            <div className='queryExamplesDiv'>
+        Here's an example of the album method that gathers information based upon the query parameters 
+            <br />
+            <br />
+            <i><h4>http://ws.audioscrobbler.com/2.0/?method=album.search&album=believe&api_key=${response.apiKey ? response.apiKey : 'API_KEY_GOES_HERE'}&format=json</h4></i>
+            <br />
+            <br />
+            Heres an example of the response that you will get back: <br/>
+            NOTE: This is just one of the results from the results-albummatches-album arrays within the response object:
+
+            <pre className='showJson'>
+                
+                {JSON.stringify(exampleData, null, 2)}
+            </pre>
+            </div>
+        </div>
+        <br />
+        <br />
+        <br />
+        <h4> Within different endpoints there are required query parameters and some being for user and authentication features. 
+            <br />
+            To learn what parameters are required for the endpoints please go here: <a href='https://www.last.fm/api#getting-started'>Last FM Api Docs</a></h4>
+        <br />
+        <br />
+        <br />
+        </> 
+    )
+}
         `
     )
 }
@@ -3383,7 +3887,7 @@ function ApiGoPage(response) {
             <br />
             <div className='welcomeContainerDiv'>
             <div className='apiGoLogoDivMain'> 
-            <img src='/img/api-go.png'></img>
+            <img src='https://api-go.app/img/api-go.gif'></img>
             </div>
             </div>
             <br />
@@ -3417,7 +3921,9 @@ const functions = {
     EdamamExample,
     MovieExample,
     NewsExample,
-    YoutubeExample, 
+    YoutubeExample,
+    LastFmExample,
+    RawgExample,
     ApiGoPage,
     ConfigJS
 

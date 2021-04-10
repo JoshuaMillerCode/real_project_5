@@ -74,12 +74,14 @@ promptUser().then(function(response){
         } else {
             consola.warn(stdout);
             exec(`cd ${projectName} && npm audit`, (err, stdout, stderr) => {
-                consola.warn(`These are some warnings but they\'re no big deal, trust me: ${stdout}`)
-                consola.success(`Your project has been successfully built!!!`)
+                consola.warn(`These are some warnings but they\'re no big deal, trust me: ${stdout}`);
+                consola.success(`Your project has been successfully built!!!`);
                 consola.success(`Your project is inside of your ${CURR_DIR} directory, run this command to enter your project: /n
                 > cd ${projectName} <`);
+                consola.success('After that, all you have to do is run > npm start < to get it going.');
+                consola.success(`In the generated project we have made a cheatsheet for the ${projectChoice} api for you to look at and reference.`);
                 consola.success('The api related files are in the > components < folder');
-                consola.success('If you did not provided an API-KEY, don\'t worry. There will be a config.js file within you project directory where you can add the key once you receive one');
+                consola.success('If you did not provide an API-KEY, don\'t worry. There will be a config.js file within you project directory where you can add the key once you receive one');
                 consola.success(`We hope this helps you kickstart your project! Have fun!`);
             })
         }

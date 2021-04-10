@@ -1,5 +1,5 @@
 <div align="center"> 
-<img src='./img/api-go.gif' />
+<img src='https://api-go.app/img/api-go.gif' />
 
 ## Welcome to API-Go 
 ### The dev package designed to help jump start your React website!

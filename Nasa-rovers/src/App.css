@@ -1,0 +1,201 @@
+.topSection{
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 25px;
+}
+.titleImage {
+
+/* float:left; */
+width:49%;
+display:inline-block;
+}
+.apiGoLogoDiv {
+width:49%;
+float:right;
+
+}
+.showJson {
+margin-left: 40px;
+}
+.cameraTable {
+border: 8px solid black;
+margin: 0 auto;
+padding: 10px;
+border-radius: 15px;
+background-color: red;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+}
+.cameraTable tr td{
+border: 1.3px solid black;
+padding: 10px;
+background-color: white;
+}
+.tableTitles {
+text-align: center;
+}
+.rover-info{
+max-width: 1100px;
+/* margin: 0 auto; */
+}
+.roverPic {
+width: 100%;
+}
+.rover-cameras    {
+/* width: 50%; */
+float: left;
+padding: 20px;
+width: 45vw;
+}
+.camera-table  {
+width: 45vw;
+margin-left: 45vw;
+}
+h1, h2, h3, h4, p, .navbar {
+text-align: center;
+}
+.roverTitleImage {
+margin-left: 15%;
+}
+.photo {
+max-width: 50vw;
+}
+.welcomeContainerDiv, .queryExamplesDiv, .missionManifestDiv, .apiGoLogoDivMain {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+.exampleFetchContainerDiv  {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+flex-wrap: wrap;
+}
+.exampleFetchDiv {
+padding: 20px 40px;
+width: 20vw;
+text-align: center;
+}
+.missionManifestDiv, .PhotoAttributesDiv, .queryExamplesDiv {
+border: 3px solid black;
+width: 55vw;
+padding: 20px 80px;
+margin: 20px auto;
+
+}
+.missionManifestDiv, .PhotoAttributesDiv, .queryExamplesDiv {
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+}
+.nasaLists {
+margin-left: -20%;
+}
+.nasaParagraphDiv{
+padding: 20px 40px;
+}
+.exampleHr {
+width: 55vw;
+}
+.exampleHr2 {
+width: 35vw;
+}
+.exampleIntro {
+width: 65vw;
+margin: 20px auto;
+
+
+}
+.exampleTdDescriptions{
+text-align: center;
+background-color: aquas;
+}
+.exampleContainerDiv, .exampleLists {
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+
+}
+.exampleTopDiv{
+border: 3px solid black;
+width: 55vw;
+padding: 20px 80px;
+margin: 20px auto;
+border-radius: 20px;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+}
+.showJson {
+max-width: 50vw;
+white-space: pre-line;
+}
+p {
+text-align: center;
+}
+.exampleTable1 {
+border: 8px solid black;
+margin: 0 auto;
+padding: 10px;
+border-radius: 15px;
+background-color: red;
+width: 55vw;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+
+}
+.exampleTable2 {
+border: 8px solid black;
+margin: 0 auto;
+padding: 10px;
+border-radius: 15px;
+background-color: red;
+max-width: 23vw;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+
+}
+.exampleTable1 tr td{
+border: 1.3px solid black;
+padding: 10px;
+background-color: white;
+text-align: left;
+}
+.exampleTable2 tr td{
+border: 1.3px solid black;
+padding: 10px;
+background-color: white;
+text-align: left;
+max-width: 23vw;
+}
+.exampleTable3 {
+border: 8px solid black;
+margin: 0 auto;
+padding: 10px;
+border-radius: 15px;
+background-color: red;
+max-width: 12vw;
+box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
+}
+.exampleTable3 tr td{
+border: 1.3px solid black;
+padding: 10px;
+background-color: white;
+text-align: left;
+max-width: 23vw;
+}
+.exampleTable tr td {
+border: 1.3px solid black;
+padding: 10px;
+background-color: white;
+text-align: left;
+}
+.exampleTable1, tr, td{
+  max-width: 55vw;
+  white-space:wrap;
+  
+}
+.navbar {
+display: flex;
+flex-direction: row;
+justify-content: space-evenly;
+font-weight: 600;
+font-size: 1.1em;
+}

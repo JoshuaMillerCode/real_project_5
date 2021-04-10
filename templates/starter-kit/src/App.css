@@ -143,14 +143,13 @@ box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
 
 }
 .exampleTable2 {
-border: 8px solid black;
-margin: 0 auto;
-padding: 10px;
-border-radius: 15px;
-background-color: red;
-max-width: 23vw;
-box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
-
+  border: 8px solid black;
+  margin: 0 auto;
+  padding: 10px;
+  border-radius: 15px;
+  background-color: red;
+  max-width: 38vw;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 5px 10px, rgba(0, 0, 0, 0.23) 0px 5px 10px;
 }
 .exampleTable1 tr td{
 border: 1.3px solid black;

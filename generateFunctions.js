@@ -2294,7 +2294,7 @@ export default function Examples() {
   
   </p>
   <h4>***********************  Dont forget to remove key below! **********************</h4>
-  <h3>My key for testing: API-KEY was not provided  </h3>
+  <h2>Your API-KEY is: ${response.apiKey ? response.apiKey : 'API-KEY was not provided'}</h2>
   <br />
   <br />
 <div className='exampleContainerDiv'>
@@ -3351,6 +3351,7 @@ export default function Info() {
                 </div>
             </div>
         <br />
+        <h2>Your API-KEY is: ${response.apiKey ? response.apiKey : 'API-KEY was not provided'}</h2>
         <h2>If you dont' have one yet, get your <a target='_blank' href='https://rawg.io/apidocs'>RAWG Api Key</a></h2>
         <h1>RAWG Video Games Api</h1>
         <div className='exampleIntro'>
@@ -3647,6 +3648,7 @@ export default function Examples (props) {
                 </div>
             </div>
         <br />
+        <h2>Your API-KEY is: ${response.apiKey ? response.apiKey : 'API-KEY was not provided'}</h2>
         <h2>If you dont' have one yet, get your <a target='_blank' href='https://www.last.fm/api#getting-started'>Last FM Api Key</a></h2>
         <h1>Last FM Music Api</h1>
         <div className='exampleIntro'>
@@ -3846,6 +3848,29 @@ function LastFmFetch() {
     )
 }
 
+function LastFmCode(){
+    return(
+        `
+        <div>
+                <h1>Example Display Data:</h1>
+                <div className='exampleDatas'>
+                    { 
+                        data.map((data) => {
+                            return (
+                                <>
+                                    <h2> Album Title: {data.name}</h2>
+                                    <h3>Album Artist: {data.artist}</h3>
+                                    <img src={data.image[3]['#text']}/>
+                                </>
+                            )
+                        }) 
+                    }
+                </div>
+            </div>
+        `
+    )
+}
+
 function decideFetch (projectChoice){
     switch (projectChoice) {
         case 'Nasa':
@@ -3896,6 +3921,13 @@ function ApiGoPage(response) {
             <div className='welcomeDiv'>
                 <h1>Welcome to API-Go</h1>
             </div>
+
+            ${
+                response.apiKey ?
+                LastFmCode()
+                :
+                ''
+            }
         
         </>
       );

@@ -79,7 +79,7 @@ promptUser().then(function(response){
                 consola.success(`Your project is inside of your ${CURR_DIR} directory, run this command to enter your project: /n
                 > cd ${projectName} <`);
                 consola.success('The api related files are in the > components < folder');
-                consola.success('If you did not provided an API-KEY, don\'t worry. There will be a config.js file within you project directory where you can add the key once you receive one');
+                consola.success('If you did not provide an API-KEY, don\'t worry. There will be a config.js file within you project directory where you can add the key once you receive one');
                 consola.success(`We hope this helps you kickstart your project! Have fun!`);
             })
         }

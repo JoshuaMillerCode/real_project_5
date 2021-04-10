@@ -3851,21 +3851,22 @@ function LastFmFetch() {
 function LastFmCode(){
     return(
         `
-        <div>
-                <h1>Example Display Data:</h1>
-                <div className='exampleDatas'>
+        <br />
+        <br />
+            <h1>Example Display Data:</h1>
+        <div className='exampleFetchContainerDiv'>
                     { 
                         data.map((data) => {
                             return (
-                                <>
+                                <><div className='exampleFetchDiv'>
                                     <h2> Album Title: {data.name}</h2>
                                     <h3>Album Artist: {data.artist}</h3>
                                     <img src={data.image[3]['#text']}/>
+                                    </div>
                                 </>
                             )
                         }) 
                     }
-                </div>
             </div>
         `
     )

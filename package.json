@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/JoshuaMillerCode/real_project_5#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "consola": "^2.15.3",
     "fs-extra": "^9.1.0",
     "inquirer": "^8.0.0"

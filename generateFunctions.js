@@ -3891,6 +3891,13 @@ function decideFetch (projectChoice){
     }
 }
 
+function decideCode(projectChoice){
+    switch (projectChoice) {
+        case 'LastFm Music':
+           return LastFmCode();
+    }
+}
+
 function ApiGoPage(response) {
     return(
         `
@@ -3924,10 +3931,7 @@ function ApiGoPage(response) {
             </div>
 
             ${
-                response.apiKey ?
-                LastFmCode()
-                :
-                ''
+                decideCode(response.apiProjectChoice)
             }
         
         </>

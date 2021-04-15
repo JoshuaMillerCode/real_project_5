@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JoshuaMillerCode/real_project_5.git"
+    "url": "https://api-go.app/"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/JoshuaMillerCode/real_project_5/issues"
+    "url": "https://api-go.app/"
   },
-  "homepage": "https://github.com/JoshuaMillerCode/real_project_5#readme",
+  "homepage": "https://api-go.app/",
   "dependencies": {
     "axios": "^0.21.1",
     "consola": "^2.15.3",

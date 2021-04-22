@@ -79,7 +79,6 @@ function promptUser(){
     ])
 }
 
-
 // below we set the response choice as variables as well as the
 // path to which the files will be written, all dependant on responses
 

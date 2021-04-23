@@ -2540,20 +2540,46 @@ export default function Examples() {
 function NewsFetch(){
     return(
         `
+        
         //Example Fetch
-        const [data, setData] = useState({})
+        const [data, setData] = useState([])
 
         useEffect(() => {
         (async () => {
             try{
                 const res = await fetch(\`https://newsapi.org/v2/everything?q=wandavision&apiKey=\${secrets.apiKey}\`);
                 const data = await res.json()
-                await setData(data)
+                await setData(data.articles)
             } catch (err) {
                 console.error(err)
             }
         })()
     }, [])
+        `
+    )
+}
+
+function NewsCode() {
+    return(
+        `
+        <br />
+        <br />
+            <h1>Example Display Data:</h1>
+        <div className='exampleFetchContainerDiv'>
+                    { 
+                        data.map((article) => {
+                            return (
+                                <><div className='exampleFetchDiv'>
+                                    <h3>{article.title}</h3>
+                                    <h4>{article.source.name}</h4>
+                                    <a href={article.url} target='_blank'>
+                                    <img class='newsImgs' src={article.urlToImage}/></a>
+                                    </div>
+                                </>
+                            )
+                        }) 
+                    }
+            </div>
         `
     )
 }
@@ -3874,16 +3900,15 @@ function decideFetch (projectChoice){
 function decideCode(projectChoice){
     switch (projectChoice) {
         case 'LastFm Music':
-           return LastFmCode();
+            return LastFmCode();
+        case 'Movie':
+            return MovieCode();
+        case 'News':
+            return NewsCode();
     }
 }
 
-function decideCode(projectChoice){
-    switch (projectChoice) {
-        case 'Movie':
-            return MovieCode();
-    }
-}
+
 
 function ApiGoPage(response) {
     return(

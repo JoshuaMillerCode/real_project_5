@@ -2154,20 +2154,40 @@ export default function Examples() {
 function MovieFetch(){
     return(
         `
-        //Example Fetch
-        const [data, setData] = useState({})
-
+        const [data, setData] = useState([])
         useEffect(() => {
-        (async () => {
-            try{
-                const res = await fetch(\`http://www.omdbapi.com/?apikey=\${secrets.apiKey}&t=seinfeld&type=series&plot=full\`);
-                const data = await res.json()
-                await setData(data)
-            } catch (err) {
-                console.error(err)
-            }
-        })()
-    }, [])
+            (async () => {
+                try{
+                    const res = await fetch(\`http://www.omdbapi.com/?apikey=\${secrets.apiKey}&s=superman&type=movie\`);
+                    const data = await res.json()
+                    await setData(data.Search)
+                } catch (err) {
+                    console.error(err)
+                }
+            })()
+        }, [])
+        if (!data) return <div />;
+        `
+    )
+}
+
+function MovieCode(){
+    return(
+        `
+        <div className='exampleFetchContainerDiv'>
+                    { 
+                        data.map((movie) => {
+                            return (
+                                <><div className='exampleFetchDiv'>
+                                    <h2> Movie Title: {movie.Title}</h2>
+                                    <h3>Year Made: {movie.Year}</h3>
+                                    <img src={movie.Poster}/>
+                                    </div>
+                                </>
+                            )
+                        }) 
+                    }
+            </div>
         `
     )
 }
@@ -3855,6 +3875,13 @@ function decideCode(projectChoice){
     switch (projectChoice) {
         case 'LastFm Music':
            return LastFmCode();
+    }
+}
+
+function decideCode(projectChoice){
+    switch (projectChoice) {
+        case 'Movie':
+            return MovieCode();
     }
 }
 

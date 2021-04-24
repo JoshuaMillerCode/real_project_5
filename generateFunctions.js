@@ -3651,14 +3651,14 @@ function RawgFetch(){
     return(
         `
         //Example Fetch
-        const [data, setData] = useState({})
+        const [data, setData] = useState([])
 
         useEffect(() => {
         (async () => {
             try{
                 const res = await fetch(\`https://api.rawg.io/api/games?key=\${secrets.apiKey}&search=mario\`);
                 const data = await res.json()
-                await setData(data.results[0])
+                await setData(data.results)
             } catch (err) {
                 console.error(err)
             }
@@ -3666,6 +3666,28 @@ function RawgFetch(){
     }, [])
         `
     )
+}
+
+function RawgCode(){
+    return(`
+    <br />
+    <br />
+    <h1>Example Display Data:</h1>
+    <div className='exampleFetchContainerDiv'>
+            { 
+                data.map((game) => {
+                    return (
+                        <><div className='exampleFetchDiv'>
+                            <h2>  {game.name}</h2>
+
+                            <img className='newsImgs' src={game.background_image}/>
+                            </div>
+                        </>
+                    )
+                }) 
+            }
+    </div>
+    `)
 }
 
 function LastFmExample(response) {
@@ -3962,6 +3984,8 @@ function decideCode(projectChoice){
             return EdamamCode();
         case 'Youtube':
             return YoutubeCode();
+        case 'RAWG Video Games':
+            return RawgCode();
     }
 }
 
